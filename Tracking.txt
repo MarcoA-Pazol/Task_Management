@@ -1,0 +1,6 @@
+17 / 03 / 24: Project starting 
+For today I started the client project development, I started with the model creation, initial project migrations and the README.md documentation.
+I already have created my initial repository and initial commit in github using git bash and a remote repository previously created.
+For tomorrow I will create and implement all the api.py and serializers.py files logic and architechture.
+I will create the front_end app in my Django project to display the graphic project web visualization and I will start with that part on tomorrow.
+
