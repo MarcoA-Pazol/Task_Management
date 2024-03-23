@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'BackEnd',
-    'FrontEnd'
+    'FrontEnd',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -76,16 +77,25 @@ WSGI_APPLICATION = 'Task_Manager.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # This project require PostgreSQL DDBB connection instead Sqlite3 as default.
+#SQLITE3
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '<database_name>', # BASE_DIR / 'db.sqlite3',
-        'USER': '<database_username>',
-        'PASSWORD': '<password>',
-        'HOST': '<database_host_or_ip>',
-        'PORT': '<database_port>',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
+
+#POSTGRESQL
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Task_Manager', # BASE_DIR / 'db.sqlite3',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Sanjudastadeo1029_',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation

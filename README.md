@@ -42,8 +42,8 @@ The system should be responsive and accessible from both desktop and mobile devi
 Data should be stored securely and backed up regularly to prevent loss.
 The user interface should be intuitive and user-friendly to encourage adoption among employees.
 The project should be completed within a specified timeline of 4 weeks.
-Evaluation Criteria:
 
+Evaluation Criteria:
 The system should meet all specified requirements outlined by the client.
 The system should be bug-free and demonstrate robust functionality.
 The user interface should be aesthetically pleasing and intuitive to use.

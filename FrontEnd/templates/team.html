@@ -1,0 +1,11 @@
+{% extends 'layouts/nav_menu.html' %}
+
+{% block content %}
+
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/team.css' %}">
+    <script src="{% static 'scripts/team.js' %}"></script>
+
+    <h1>Team info will be displayed here...</h1>
+{% endblock %}

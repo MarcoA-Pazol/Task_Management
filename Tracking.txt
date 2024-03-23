@@ -13,6 +13,15 @@ For today:
 
 21 / 03 / 24
 For today:
--Implement views on FrontEnd/views.py 
+-Implement views on FrontEnd/views.py ✔
 -Implement Urls on Task_Manager/urls.py and FrontEnd/urls.py ✔
 -Organize the Back-End and Front-End into different two apps and register them in settings.py on general project directory. ✔
+-Stablish PostgreSQL connection in settings.py file.
+
+23 / 03 / 24
+For today:
+-Implement the first welcome / home page and ensures that the url is loaded when the server is running (localhost for developing, it will be changed in future to a production server host for the client use). ✔ 
+-Create the first 4 templates for the views use(home, tasks, help, team). ✔
+-Implement Navigation Menu as a layout template including it into all first 4 navigable templates. ✔
+-Implement CSS style for the navigation menu.
+-Implement tasks, help, team views to load templates in FrontEnd/views.py directory.

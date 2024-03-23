@@ -1,0 +1,11 @@
+{% extends 'layouts/nav_menu.html' %}
+
+{% block content %}
+
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
+    <script src="{% static 'scripts/home.js' %}"></script>
+
+    <h1>Welcome to Home</h1>
+{% endblock %}

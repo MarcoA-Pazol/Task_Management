@@ -1,0 +1,12 @@
+{% extends 'layouts/nav_menu.html' %}
+
+{% block content %}
+
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/tasks.css' %}">
+    <script src="{% static 'scripts/tasks.js' %}"></script>
+    
+    <h1>Tasks will be displayed here...</h1>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'layouts/nav_menu.html' %}
+
+{% block content %}
+
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/help.css' %}">
+    <script src="{% static 'scripts/help.js' %}"></script>
+    
+    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
+
+{% endblock %}

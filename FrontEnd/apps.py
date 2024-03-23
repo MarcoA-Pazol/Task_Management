@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TasksConfig(AppConfig):
+class FrontEndConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'Tasks'
+    name = 'FrontEnd'

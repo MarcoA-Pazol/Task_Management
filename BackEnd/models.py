@@ -42,7 +42,7 @@ class Employee(models.Model):
 
 #This class is for a sugested model, the comments that I suggest to the client to add this part because it can be useful and interesting to add this part on a every task if the employees have a sugestion, comment, complaint or doubt.
 class Comment(models.Model):
-    username = models.ForeignKey(Employee.username, on_delete=models.CASCADE)
+    username = models.ForeignKey(Employee, on_delete=models.CASCADE)
     content = models.TextField()
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     comment_date = models.DateTimeField(auto_now_add=True)
