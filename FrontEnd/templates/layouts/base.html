@@ -1,0 +1,51 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+        <title>Task Manager</title>
+        <script src="{% static 'scripts/base.js' %}"></script>
+    </head>
+
+    <header>
+        <!--TOP BAR-->
+        <nav class="top_options_menu">
+            <ul>
+                <li>
+                    <div class="company_title">
+                        <h2 class=>Productivity Solutions<b>Inc.</b></h2>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="navigation_menu">
+                        <ul>
+                            <li><a href="{% url 'home' %}"><h1><h1></a></li>
+                            <li><a href="{% url 'tasks' %}"><h1><h1></a></li>
+                            <li><a href="{% url 'team' %}"><h1><h1></a></li>
+                            <li><a href="{% url 'help' %}"><h1><h1></a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="user_options_menu">
+                        <h2 id="username_top">Username</h2>
+                        <button id="colormode_button">Colormode</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <body class="block_content">
+        {% block content %}
+            <!--Changeable content will be placed here-->
+        {% endblock %}
+    </body>
+
+    <footer>
+        <!--Footer options and info will be displayed here-->
+    </footer>
+</html>

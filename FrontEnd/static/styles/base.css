@@ -1,0 +1,86 @@
+/*Body general base*/
+body{
+    /*background: linear-gradient(rgb(184, 219, 240), rgb(190, 185, 255));*/
+    background: linear-gradient(rgb(10, 10, 10), rgb(5, 5, 40));
+}
+
+
+/*TOP OPTIONS MENU*/
+header{
+    position: fixed;
+    right: 5px;
+    bottom: 580px;
+}
+
+.top_options_menu{
+    position: relative;
+    width: 1299px;
+    height: 68px;
+    background-color: black;
+    border-bottom: solid 1px white;
+    border-inline: 1px solid white;
+}
+
+.top_options_menu ul li{
+    padding-left: 50px;
+    display: inline-flex;
+}
+
+
+/*Company Title*/
+.company_title{
+    width: 300px;
+    height: 50px;
+    position: relative;
+    bottom: 10px;
+}
+
+.company_title h2{
+    color: rgb(3, 130, 214);
+    font-family: 'Trebuchet MS';
+    font-size: 25px;
+}
+
+.company_title b{
+    color: snow;
+    font-family: 'Segoe UI';
+}
+
+
+/*Navigation menu*/
+.navigation_menu{
+    background-color: purple;
+    width: 600px;
+    height: 50px;
+    position: relative;
+    bottom: 10px;
+}
+
+
+/*User options*/
+#username_top{
+    font-size: 16px;
+    color: rgb(84, 156, 228);
+    position: relative;
+    cursor: hand;
+}
+
+#colormode_button{
+    border: 1px solid rgb(150, 190, 230);
+    font-size: 12px;
+    color: snow;
+    background-color: darkslategray;
+    position: relative;
+    cursor: hand;
+}
+
+
+/*Block content base configuration*/
+.block_content{
+    position: relative;
+    left: 50px;
+    top: 100px;
+    width: 1150px;
+    height: 570px;
+    border: 1px solid red;
+}

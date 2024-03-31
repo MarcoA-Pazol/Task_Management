@@ -12,13 +12,13 @@ def home(request):
     return render(request, 'home.html', {'title':title})
 
 def tasks(request):
-    pass
+    return render(request, 'tasks.html')
 
 def team(request):
-    pass
+    return render(request, 'team.html')
 
 def help(request):
-    pass
+    return render(request, 'help.html')
 
 #Session views
 def login(request):
