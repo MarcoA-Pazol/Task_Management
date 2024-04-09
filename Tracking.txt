@@ -28,6 +28,12 @@ For today:
 
 31 / 03 / 24
 For today:
--Finalize HTML, CSS style for the Top bar and implement it in every project navegable template.
+-Finalize HTML, CSS style for the Top bar and implement it in every project navegable template. ✔
 -Finalize HTML and CSS style for footer and implement it in every project navegable template. 
 -Finalize base HTML structure for header, footer and body and implement it in every project navegable template.
+
+09 / 04 / 24
+For today:
+-Start to create help questions model and help answers model.
+-Implement loop to add every created answer-question in the help page.
+-Implement the basic HTML, CSS and JS for the displayable answer for the questions in the help view.

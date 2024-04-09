@@ -8,44 +8,94 @@
         <script src="{% static 'scripts/base.js' %}"></script>
     </head>
 
-    <header>
-        <!--TOP BAR-->
-        <nav class="top_options_menu">
-            <ul>
-                <li>
-                    <div class="company_title">
-                        <h2 class=>Productivity Solutions<b>Inc.</b></h2>
-                    </div>
-                </li>
+    <body>
+        <header>
+            <!--TOP BAR-->
+            <nav class="top_options_menu">
+                <ul>
+                    <li>
+                        <div class="company_title">
+                            <h2 class=>Productivity Solutions<b>Inc.</b></h2>
+                        </div>
+                    </li>
 
-                <li>
-                    <div class="navigation_menu">
-                        <ul>
-                            <li><a href="{% url 'home' %}"><h1><h1></a></li>
-                            <li><a href="{% url 'tasks' %}"><h1><h1></a></li>
-                            <li><a href="{% url 'team' %}"><h1><h1></a></li>
-                            <li><a href="{% url 'help' %}"><h1><h1></a></li>
-                        </ul>
-                    </div>
-                </li>
+                    <li>
+                        <div class="navigation_menu">
+                            <ul>
+                                <li><a href="{% url 'home' %}"><h1>Home<h1></a></li>
+                                <li><a href="{% url 'tasks' %}"><h1>Tasks<h1></a></li>
+                                <li><a href="{% url 'team' %}"><h1>Team<h1></a></li>
+                                <li><a href="{% url 'help' %}"><h1>Help<h1></a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-                <li>
-                    <div class="user_options_menu">
-                        <h2 id="username_top">Username</h2>
-                        <button id="colormode_button">Colormode</button>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+                    <li>
+                        <div class="user_options_menu">
+                            <img id="profile_img" src="{% static 'images/profile_img.png' %}">
+                            <aside>
+                                <h2 id="username_top">Username</h2>
+                                <button id="colormode_button">Colormode</button>
+                            </aside>
+                        </div>
+                    </li>
 
-    <body class="block_content">
-        {% block content %}
-            <!--Changeable content will be placed here-->
-        {% endblock %}
+                    <li>
+                        <div class="session_menu">
+                            <a><h1 id="register_button">R e g i s t e r</h1></a>
+                            <a><h1 id="login_button">L o g i n</h1></a>
+                            <a><h1 id="logout_button">L o g o u t</h1></a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="content">
+            {% block content %}
+                <!--Changeable content will be placed here-->
+            {% endblock %}
+        </div>
+
+        <footer>
+            <div class="social_sites">
+                <h1>Here are our social networks:</h1>
+                <ul>
+                    <li><a target="_blank" href="https://www.facebook.com"><img src="{% static 'images/facebook_logo.png' %}"></a></li>
+                    <li><a target="_blank" href="https://twitter.com/?lang=es"><img src="{% static 'images/twitter_logo.png' %}"></a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/marco-antonio-pozol-narciso-388941277/"><img src="{% static 'images/linkedin_logo.png' %}"></a></li>
+                    <li><a target="_blank" href="https://github.com/MarcoA-Pazol"><img src="{% static 'images/github_logo.png' %}"></a></li>
+                    <li><a target="_blank" href="https://www.instagram.com"><img src="{% static 'images/instagram_logo.png' %}"></a></li>
+                    <li><a target="_blank" href="https://web.whatsapp.com"><img src="{% static 'images/whatsapp_logo.png' %}"></a></li>
+                </ul>
+                <hr>
+            </div> 
+
+            <div class="about_sites">
+                <h1>About -</h1>
+                <h2>Company</h2>
+                <h2>Mision</h2>
+                <h2>Vision</h2></li>
+            </div>
+
+            <div class="more_sites">
+                <h1>More -</h1>
+                <h2>Forum</h2>
+                <h2>Blog</h2>
+                <h2>Docs</h2>
+            </div>
+
+            <div class="services_sites">
+                <h1>Services -</h1>
+                <h2>Custom Software</h2>
+                <h2>Software Solutions</h2>
+                <h2>Consultancy Services</h2>
+            </div>
+            
+            <div class="develop_info">
+                <h2>Developed by <b>MarcoA_Pazol</b></h2>
+                <h3>2024 Allrights reserved by Productivity Solutions Inc.</h3>
+            </div>
+        </footer>
     </body>
-
-    <footer>
-        <!--Footer options and info will be displayed here-->
-    </footer>
 </html>

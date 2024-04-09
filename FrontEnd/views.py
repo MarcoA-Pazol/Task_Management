@@ -11,9 +11,11 @@ def home(request):
     title = 'P-S Inc'
     return render(request, 'home.html', {'title':title})
 
+@login_required
 def tasks(request):
     return render(request, 'tasks.html')
 
+@login_required
 def team(request):
     return render(request, 'team.html')
 
@@ -26,6 +28,7 @@ def login(request):
 
 def register(request):
     pass
+
 
 def logout(request):
     pass

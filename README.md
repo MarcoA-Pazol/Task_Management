@@ -53,7 +53,6 @@ The project should be completed within the agreed-upon timeline.
 Frontend Implementation:
 Technology Stack:
 The frontend should be implemented using modern web technologies such as HTML5, CSS3, and JavaScript.
-React.js will be used as the primary JavaScript framework for building the user interface.
 
 Responsive Design:
 The application should be responsive and accessible from various devices, including desktops, tablets, and mobile phones.

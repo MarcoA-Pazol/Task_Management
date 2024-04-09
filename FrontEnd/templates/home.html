@@ -1,12 +1,67 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-
     <!--This is for load styles, scripts and more from static directory.-->
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles/home.css' %}">
     <script src="{% static 'scripts/home.js' %}"></script>
 
-    <div id="home_principal_container">
+    <div class="home_principal_container">
+        <ul>
+            <li>
+                <img id="home_image" src="{% static 'images/home_image_1.png' %}">
+            </li>
+            <li>
+                <div>
+                    <h1>Manage your tasks, manage your time!</h1>
+                    <h2>° Tasks Asignement and Creation</h2>
+                    <h2>° See Your Team Asignements</h2>
+                    <h2>° Create Tasks for your Employees</h2>
+                    <h2>° Set Delivery Times</h2>
+                    <ul>
+                        <a href="{% url 'team' %}"><button id="join_team_button">Join on a Team</button></a>
+                        <a href="{% url 'tasks' %}"><button id="assign_yourself_task_button">Asign Task Yourself</button></a>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cta_container">
+        <h1>What is PS Task Manager?</h1>
+        <h2>This is an environment to improve your productivity and effectiveness managing your tasks and times to complete your purposes and responsabilities inside the company requirements, just in one place and within all the team members and company areas for the common purpose.</h2>
+        <a href="{% url 'register' %}"><h3>Go to work</h3></a>
+    </div>
+
+    <div class="home_features_container">
+        <ul>
+            <li>
+                <div>
+                    <h3>Task Asignement</h3>
+                    <p>Asign tasks yourself or for your team members</p>
+                 </div>
+            </li>
+
+            <li>
+                <div>
+                    <h3>Ticket Tracking System</h3>
+                    <p>Track your tasks and follow your status easily</p>
+                </div>
+            </li>
+
+            <li>
+                <div>
+                    <h3>Delivery Times</h3>
+                    <p>Stablish delivery times for your tasks</p>
+                </div>
+            </li>
+
+            <li>
+                <div>
+                    <h3>Ideal Work Environment</h3>
+                    <p>Just join to a team, and start to atach your tasks and responsabilities</p>
+                </div>
+            </li>
+        </ul>
     </div>
 {% endblock %}
