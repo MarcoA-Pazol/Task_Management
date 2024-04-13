@@ -39,6 +39,13 @@ class Employee(models.Model):
     birthday = models.DateField()
     is_active = models.BooleanField()
     
+class Questions(models.Model):
+    question = models.CharField(max_length=200)
+    answer = models.TextField()
+    category = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.question
 
 #This class is for a sugested model, the comments that I suggest to the client to add this part because it can be useful and interesting to add this part on a every task if the employees have a sugestion, comment, complaint or doubt.
 class Comment(models.Model):
@@ -46,5 +53,8 @@ class Comment(models.Model):
     content = models.TextField()
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     comment_date = models.DateTimeField(auto_now_add=True)
+    
+    
+
     
     

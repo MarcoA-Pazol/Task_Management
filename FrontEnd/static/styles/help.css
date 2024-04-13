@@ -1,0 +1,99 @@
+/* QUESTIONS CONTAINER */
+.questions_container{
+  display: inline-flex;
+  width: 100%;
+  height: auto;
+  margin-top: 45px;
+  border-block: 1px solid rgb(160, 160, 220);
+}
+.questions{
+  padding-top: 10px;
+  width: 70%;
+}
+  /* Accordion Style */
+  .accordion {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+    /* Question style*/
+    .question {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 20px;
+      color: rgb(186, 191, 240);
+      padding: 10px;
+      background: linear-gradient(rgb(29, 20, 63), rgb(18, 62, 80));
+      cursor: pointer;
+    }
+
+    /* Answer style(initial hided) */
+    .answer {
+      font-size: 14px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: black;
+      color: white;
+      padding: 10px;
+      display: none;
+    }
+
+/* Aside questions menu */
+.questions_menu{
+    width: 30%;
+    background-color: black;
+    border-left: 1px solid rgba(160, 160, 220, 0.9);
+  }
+  .questions_menu h1{
+    padding-left: 10px;
+    color: rgb(186, 191, 240);
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  .questions_menu a{
+    text-decoration: none;
+    color: rgba(150, 150, 250, 0.8);
+  }
+  .questions_menu a:hover{
+    color: rgba(160, 160, 220, 0.9);
+  }
+/********************************************************/
+
+/*HELP FORMULARY CONTAINER*/
+.help_formulary_container{
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+  padding-inline: 10px;
+  background-color: rgb(90, 110, 120, 0.2);
+  border-block: 1px solid rgb(190, 190, 220);
+}
+
+  .help_formulary_container h1{
+    width: 100%;
+    border-bottom: 1px solid rgba(190, 190, 220);
+  }
+
+  .help_formulary input{
+    border-radius: 3px;
+    width: 20%;
+    margin-right: 10px;
+    background-color: rgba(150, 150, 250, 0.8);
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-left: 10px;
+  }
+
+  #submit_button{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: rgb(29, 20, 63);
+    color: rgb(190, 190, 240);
+    cursor: hand;
+  }
+
+  #submit_button:hover{
+    background-color: rgba(160, 160, 220, 0.5);
+    color: rgb(29, 20, 63);
+    cursor: hand;
+  }
+/*******************************************************/

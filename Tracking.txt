@@ -5,21 +5,17 @@ For tomorrow I will create and implement all the api.py and serializers.py files
 I will create the front_end app in my Django project to display the graphic project web visualization and I will start with that part on tomorrow.
 
 19 / 03 / 24
-For today:
 -I have to implement the front-end app withing Django. ✔
 -Start with Web Interface with HTML5 standart (HTML, CSS, JS). ✔
 -Start the BBDD model for tasks and employees management. ✔
 -And I have to complete the before yesterday given tasks.("For tomorrow I will create and implement all the api.py and serializers.py files logic and architechture. I will create the front_end app in my Django project to display the graphic project web visualization and I will start with that part on tomorrow.") ✔
 
 21 / 03 / 24
-For today:
 -Implement views on FrontEnd/views.py ✔
 -Implement Urls on Task_Manager/urls.py and FrontEnd/urls.py ✔
 -Organize the Back-End and Front-End into different two apps and register them in settings.py on general project directory. ✔
--Stablish PostgreSQL connection in settings.py file.
 
 23 / 03 / 24
-For today:
 -Implement the first welcome / home page and ensures that the url is loaded when the server is running (localhost for developing, it will be changed in future to a production server host for the client use). ✔ 
 -Create the first 4 templates for the views use(home, tasks, help, team). ✔
 -Implement Navigation Menu as a layout template including it into all first 4 navigable templates. ✔
@@ -27,13 +23,15 @@ For today:
 -Implement tasks, help, team views to load templates in FrontEnd/views.py directory. ✔
 
 31 / 03 / 24
-For today:
 -Finalize HTML, CSS style for the Top bar and implement it in every project navegable template. ✔
--Finalize HTML and CSS style for footer and implement it in every project navegable template. 
--Finalize base HTML structure for header, footer and body and implement it in every project navegable template.
+-Finalize HTML and CSS style for footer and implement it in every project navegable template. ✔
+-Finalize base HTML structure for header, footer and body and implement it in every project navegable template. ✔
 
 09 / 04 / 24
-For today:
--Start to create help questions model and help answers model.
--Implement loop to add every created answer-question in the help page.
--Implement the basic HTML, CSS and JS for the displayable answer for the questions in the help view.
+-Start to create help questions model and help answers model. ✔
+-Implement loop to add every created answer-question in the help page. ✔
+-Implement the basic HTML, CSS and JS for the displayable answer for the questions in the help view. ✔
+
+13 / 04 / 24
+-Develop the register and login system.
+-Develop register and login templates and views.

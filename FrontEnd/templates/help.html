@@ -7,14 +7,52 @@
     <link rel="stylesheet" href="{% static 'styles/help.css' %}">
     <script src="{% static 'scripts/help.js' %}"></script>
     
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
-    <h1>This space is for help employees to get info about, questions and more about company, app, workflow, etc.</h1>
+    <!--Frecuent Questions-->
+    <div class="questions_container">
+        <div class="questions">
+            <h1>Frequent Questions</h1>
 
+            <!--Questions will be displayed automatically-->
+            {% for question in questions %}
+                <div class="accordion">
+                    <div class="question">
+                        {{question.question}}
+                    </div>
+                    <div class="answer">
+                        {{question.answer}}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="accordion">
+                <div class="question">
+                    For more info
+                </div>
+                <div class="answer">
+                    If you have another questions, please sent an E-mail to us at: ptsolutions@ptsupport.com
+                </div>
+            </div>
+        </div>
+
+        <aside class="questions_menu">
+            {% for category, questions in questions_by_category.items %}
+                <h1>{{category}}</h1>
+                <ul>
+                    {% for question in questions %}
+                        <li><a href="#">{{question.question}}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </aside>
+    </div>
+
+    <div class="help_formulary_container">
+        <h1>Ask for help here:</h1>
+        <form class="help_formulary" action="", method="POST">
+            {% csrf_token %}
+            <input type="text" name="reason" placeholder="reason">
+            <input type="text" name="description" placeholder="description">
+            <button id="submit_button" type="submit">Submit</button>
+        </form>
+    </div>
 {% endblock %}
