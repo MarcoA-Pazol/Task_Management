@@ -1,202 +1,130 @@
-/*Body general base*/
-body{
-    background: linear-gradient(rgb(184, 219, 240), rgb(190, 185, 255));
+/*Animations*/
+@keyframes invisible_to_visible{
+    from{
+        background-color: rgba(225, 225, 250);
+    }
+    to{
+        background-color: #0c0c27
+    }
+}
+@keyframes dark_light_dark{
+    0%{background-color: #0c0c27;}
+    20%{background-color: #363666;}
+    40%{background-color: #6d6d94;}
+    50%{background-color:#8686a5;}
+    60%{background-color: #6d6d94;}
+    80%{background-color: #363666;}
+    100%{background-color: #0c0c27;}
+}
+
+
+
+/* Body General Base */
+body {
+    background-color: #0c0c27;
+    animation-name: dark_light_dark;
+    animation-duration: .5s;
     margin: 0;
     padding: 0;
     display: flex;
-    width: 100%;
     flex-direction: column;
-    min-height: 100vh; /* Set the minimum height of the body to fill the viewport */
+    min-height: 100vh;
 }
 
-
-/*TOP OPTIONS MENU*/
-header{
+/* Top Options Menu */
+header {
     position: fixed;
     width: 100%;
-    bottom: 565px;
+    top: 0;
     z-index: 999;
     background: linear-gradient(#0c0c27, rgb(12, 12, 19));
-    /*background: linear-gradient(#cdebff, rgba(15, 14, 66));*/
+    color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.top_options_menu{
-    position: relative;
-    width: 100%;
-    height: 68px;
-    border-bottom: solid 1px white;
-    border-inline: 1px solid white;
+/* Company Title */
+.company_title h2 {
+    font-size: 28px;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: 0;
 }
 
-.top_options_menu ul li{
-    padding-left: 30px;
-    display: inline-flex;
-}
-
-
-/*Company Title*/
-.company_title{
-    width: 300px;
-    height: 50px;
-    position: relative;
-    bottom: 10px;
-}
-
-.company_title h2{
-    color: rgb(3, 130, 214);
-    font-family: 'Trebuchet MS';
-    font-size: 25px;
-}
-
-.company_title b{
-    color: snow;
-    font-family: 'Segoe UI';
+.company_title b {
+    font-size: 20px;
 }
 
 
-/*Navigation menu*/
+/* Navigation Menu */
 .navigation_menu{
-    width: 550px;
-    height: 50px;
-    position: relative;
-    bottom: 5px;
-    border-inline: 2px solid rgb(150, 190, 230);
+    border-block: 1px solid rgba(25, 25, 59, 0.849);
+    border-radius: 8px;
 }
-
-.navigation_menu ul li{
-    display: inline-flex;
-    text-align: center;
+.navigation_menu ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
 }
-
-.navigation_menu a{
+.navigation_menu li {
+    margin-right: 20px;
+}
+.navigation_menu a {
     text-decoration: none;
+    color: #ffffff;
+    margin-inline: 5px;
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: color 0.3s;
 }
-
-.navigation_menu h1{
-    font-family:'Gill Sans', 'Gill Sans MT';
-    color: rgb(150, 190, 230);
-    text-shadow: 1px 1px 2px #cdebff;
-    position: relative;
-    bottom: 5px;
-}
-
-.navigation_menu h1:hover{
-    color: rgb(3, 130, 214);
-    cursor: hand;
-    text-shadow: 1px 1px 2px #cdebff;
+.navigation_menu a:hover {
+    color: #cdebff;
 }
 
 
-/*User options*/
-.user_options_menu{
-    width: 250px;
-    height: 60px;
-    position: relative;
-    bottom: 30px;
+/* User Options Menu */
+.user_options_menu {
+    display: flex;
+    align-items: center;
 }
 
-.user_options_menu img{
-    border: 1px solid rgb(150, 190, 230);
-    width: 45px;
-    height: 45px;
-    position: relative;
-    top: 35px;
-    left: 15px;
-    size: 45px;
-}
-
-.user_options_menu aside{
-    display: block;
-    width: 80px;
-    height: 40px;
-    position: relative;
-    bottom: 20px;
-    left: 70px;
-}
-
-#username_top{
+#username_top {
     font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular';
-    color: rgb(84, 156, 228);
-    cursor: hand;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+    color: #54a3e4;
+    margin-right: 50px;
 }
 
-/*Session Container*/
-.session_menu{
-    display: block;
-    position: relative;
-    bottom: 50px;
-    left: 1100px;
-    height: 40px;
-    border-left: 1px solid rgb(150, 190, 230);
-    padding-left: 10px;
+/* Session Menu */
+.session_menu {
+    display: flex;
+    align-items: center;
 }
 
-#login_button{
-    font-size: 12px;
-    cursor: hand;
-    position: relative;
-    bottom: 15px;
-    text-align: center;
+#login_button,
+#register_button,
+#logout_button {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px 20px;
     border-radius: 5px;
-    border: 1px solid rgb(172, 187, 255);
-    color: rgba(5, 5, 40, .7025);
-    background-color: rgb(150, 150, 255);
-    padding-inline: 5px;
-}
-#login_button:hover{
-    cursor: hand;
-    background-color: royalblue;
-    color: rgb(172, 187, 255);
-}
-#logout_button{
-    display: none;
-    font-size: 12px;
-    cursor: hand;
-    position: relative;
-    bottom: 15px;
-    border-radius: 2px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid rgb(172, 187, 255);
-    color: rgba(5, 5, 40, .7025);
-    background-color: rgb(150, 150, 255);
-    padding-inline: 5px;
-}
-#logout_button:hover{
-    cursor: hand;
-    background-color: royalblue;
-    color: rgb(172, 187, 255);
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 #register_button{
-    font-size: 12px;
-    cursor: hand;
-    position: relative;
-    bottom: 10px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid rgb(172, 187, 255);
-    color: rgba(5, 5, 40, .7025);
-    background-color: rgb(150, 150, 255);
-    padding-inline: 5px;
+    margin-right: 40px;
 }
-#register_button:hover{
-    cursor: hand;
+
+#login_button:hover,
+#register_button:hover,
+#logout_button:hover {
     background-color: royalblue;
-    color: rgb(172, 187, 255);
+    color: #cdebff;
+    cursor: pointer;
 }
-
-
-#colormode_button{
-    border: 1px solid rgb(150, 190, 230);
-    font-size: 11px;
-    color: snow;
-    background-color: darkslategray;
-    position: relative;
-    bottom: 10px;
-    cursor: hand;
-}
-
 
 .content {
     position: relative;
@@ -207,29 +135,27 @@ header{
 
 /*FOOTER*/
 footer {
-    margin-top: auto;
-    background: linear-gradient(#cdebff, rgba(15, 14, 66, 0.726)); 
+    margin-top: 50px;
     height: 300px;
-    border-top: 1px solid snow;
+    border-top: 1px solid rgb(0, 0, 0);
     width: 100%;
+    background: linear-gradient(rgb(5, 5, 10), #0c0c27);
 }
  /*Social sites*/
  .social_sites{
-    padding-top: 5px;
+    width: 100%;
+    border-bottom: 1px solid black;
  }
-.social_sites h1{
-    position: relative;
-    left: 40px;
-    top: 15px;
-    font-size: 20px;
-    color: rgb(5, 5, 40);
-    font-family: Tahoma;
-}
-
 .social_sites ul{
-    position: relative;
-    left: 600px;
-    bottom: 15px;
+    width: 100%;
+    display: inline-flex;
+}
+.social_sites ul h1{
+    text-align: center;
+    width: 40%;
+    font-size: 16px;
+    color: rgb(190, 185, 255);
+    font-family: Tahoma;
 }
 
 .social_sites ul li{
@@ -240,128 +166,55 @@ footer {
 .social_sites img{
     width: 30px;
     height: 30px;
-    border: rgb(150, 190, 230) solid 2px;
-    border-radius: 2px;
-    position: relative;
-    bottom: 10px;
-}
-
-.social_sites hr{
-    position: relative;
-    bottom: 35px;
+    border-radius: 5px;
 }
 
 /*About Sites*/
-.about_sites{
-    display: block;
-    width: 200px;
-    padding-left: 50px;
-    border-right: 1px solid snow;
-}
-.about_sites h1{
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    letter-spacing: 4px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-.about_sites h2{
-    color: #cdebff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 17px;
-    letter-spacing: 3px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-/*More Sites*/
 .more_sites{
-    display: block;
-    width: 200px;
-    padding-left: 50px;
-    position: relative;
-    left: 250px;
-    bottom: 140px;
-    border-right: 1px solid snow;
+    width: 100%;
+    padding-inline: 8%;
+    display: inline-flex;
+
 }
-.more_sites h1{
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    letter-spacing: 4px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+.more_sites div{
+    margin-inline: 10%;
+    justify-content: center;
 }
 .more_sites h2{
-    color: #cdebff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #d3dafd;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 17px;
-    letter-spacing: 3px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-/*Services Sites*/
-.services_sites{
-    display: block;
-    width: 350px;
-    padding-left: 50px;
-    position: relative;
-    left: 550px;
-    bottom: 280px;
-    border-right: 1px solid snow;
-}
-.services_sites h1{
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    letter-spacing: 4px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-.services_sites h2{
-    color: #cdebff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 17px;
-    letter-spacing: 3px;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-/*Company Logo*/
-#company_logo{
-    width: 190px;
-    height: 130px;
-    position: relative;
-    left: 1000px;
 }
 
 /*Develop Info*/
 .develop_info{
-    width: 1310px;
-    height: 30px;
-    background-color: rgb(5, 5, 40);
-    position: relative;
-    bottom: 280px;
+    width: 100%;
+    border-top: 1px solid black;
+    display: block-flex;
 }
 
 .develop_info h2{
     color: rgb(190, 185, 255);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    width: 170px;
-    position: relative;
-    top: 5px;
-    padding-left: 100px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
 }
 
 .develop_info b{
     color: rgb(150, 190, 230);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
+}
+
+.develop_info a{
+    text-decoration: none;
+    color: rgb(190, 185, 255);
 }
 
 .develop_info h3{
     font-family: 'Times New Roman', Times, serif;
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(190, 185, 255);
-    width: 300px;
-    position: relative;
-    bottom: 20px;
-    left: 450px;
+    width: 100%;
+    text-align: center;
 }
+

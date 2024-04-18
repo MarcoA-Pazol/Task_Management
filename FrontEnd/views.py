@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
-from django.shortcuts import render, get_list_or_404, redirect
+from django.contrib.admin.views.decorators import staff_member_required #This is just for testing, it use the Django.admin decorator to login the user through the Django admin login view.
+from django.contrib.auth import logout, authenticate
+from django.shortcuts import render, get_object_or_404, redirect
+from django.db import IntegrityError
 from BackEnd.models import Task, Questions #Loading models from Task_Manager/BackEnd/models.py
-from django.http import JsonResponse
-
+from BackEnd.forms import RegistrationForm, LoginForm
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -37,11 +38,42 @@ def help(request):
 
 #Session views
 def login(request):
-    pass
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            return redirect('/') #Redirect to home page after succesfully logged in
+    else:
+        form = LoginForm()
+    return render(request, 'registration/login.html', {'form':form})
 
 def register(request):
-    pass
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+        try:
+            #Create new user
+            user = User.objects.create_user(username=username, email=email,  password=password)
+            #Authenticate and login the new user (optionally)
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request)
+                return redirect('/') #redirect to home page after user succesfully creation 
+        except IntegrityError:
+            form.add_error('username', 'This username already exists, try to use another username.')
+    else:
+        form = RegistrationForm()
+    return render(request, 'registration/register.html', {'form':form})
+            
 
-
-def logout(request):
-    pass
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('/')
+    else:
+        # Handle GET request (if needed)
+        return redirect('/')

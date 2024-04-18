@@ -33,5 +33,15 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement the basic HTML, CSS and JS for the displayable answer for the questions in the help view. ✔
 
 13 / 04 / 24
--Develop the register and login system.
--Develop register and login templates and views.
+-Develop the register and login system. ✔
+-Develop register and login templates and views. ✔
+
+16 / 04 / 24
+-Finalize the style and structure for the register template ✔
+-Finalize the style and structure for the login template 
+-Fix the style for the username on top bar when user is authenticated and logged in, and remove colormode button and fix that structure and style. ✔
+-Recustomize the style for the top bar and the footer to look profesional and  site looks like too.
+
+Remaining tasks:
+-Implement 'search' bar on top for tasks site and team site 
+-Implement the initial questions and work areas(areas from the company) as initial configuration(this is to not to be configured when the app were deployed on production stage and their company using)

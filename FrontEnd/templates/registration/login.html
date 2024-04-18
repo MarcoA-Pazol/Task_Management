@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+    <script src="{% static 'scripts/login.js' %}"></script>
+
+    <div class="login_container">
+        <h1>Sign-in with your account</h1>
+        <div class="login">
+            <form class="login_formulary" action="" method="POST">
+                {% csrf_token %}
+
+                <h2>Username</h2>
+                {{ form.username }}
+                <h2>Password</h2>
+                {{ form.password }}
+                <button id="login_button" type="submit">Submit</button>
+            </form>     
+            
+            <!--Implement password recuperation system-->
+            <h2 id="missed_password">I miss my password</h2>
+            <a href="{% url 'register' %}"><h2>I want to create an account</h2><a/>
+            
+            <img id="username_icon" src="{% static 'images/username_icon.png' %}" alt="username_icon.png">
+            <img id="password_icon" src="{% static 'images/password_icon.png' %}" alt="password_icon.png">
+        </div>
+    </div>
+
+{% endblock %}
