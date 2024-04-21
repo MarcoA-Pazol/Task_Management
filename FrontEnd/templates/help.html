@@ -50,8 +50,10 @@
         <h1>Ask for help here:</h1>
         <form class="help_formulary" action="", method="POST">
             {% csrf_token %}
-            <input type="text" name="reason" placeholder="reason">
-            <input type="text" name="description" placeholder="description">
+            <h2>Reason</h2>
+            {{ form.reason }}
+            <h2>Description</h2>
+            {{ form.description }}
             <button id="submit_button" type="submit">Submit</button>
         </form>
     </div>

@@ -6,34 +6,20 @@
     <link rel="stylesheet" href="{% static 'styles/home.css' %}">
     <script src="{% static 'scripts/home.js' %}"></script>
 
-    <div class="home_principal_container">
-        <ul>
-            <li>
-                <img id="home_image" src="{% static 'images/home_image_1.png' %}">
-            </li>
-            <li>
-                <div>
-                    <h1>Manage your tasks, manage your time!</h1>
-                    <h2>° Tasks Asignement and Creation</h2>
-                    <h2>° See Your Team Asignements</h2>
-                    <h2>° Create Tasks for your Employees</h2>
-                    <h2>° Set Delivery Times</h2>
-                    <ul>
-                        <a href="{% url 'team' %}"><button id="join_team_button">Join on a Team</button></a>
-                        <a href="{% url 'tasks' %}"><button id="assign_yourself_task_button">Asign Task Yourself</button></a>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <div class="hero_section">
+        <div class="hero_content">
+            <h1>Welcome to Your Task Manager</h1>
+            <p>Efficiently manage tasks, assignments, and projects with ease.</p>
+        </div>
+    </div>
+    
+    <div class="cta_section">
+        <h2>Ready to Get Started?</h2>
+        <p>Sign up now and experience efficient task management.</p>
+        <a href="{% url 'register' %}" class="cta_button">Sign Up</a>
     </div>
 
-    <div class="cta_container">
-        <h1>What is PS Task Manager?</h1>
-        <h2>This is an environment to improve your productivity and effectiveness managing your tasks and times to complete your purposes and responsabilities inside the company requirements, just in one place and within all the team members and company areas for the common purpose.</h2>
-        <a href="{% url 'register' %}"><h3>Go to work</h3></a>
-    </div>
-
-    <div class="home_features_container">
+    <div class="features_section">
         <ul>
             <li>
                 <div>

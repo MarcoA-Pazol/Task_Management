@@ -23,7 +23,7 @@
 body {
     background-color: #0c0c27;
     animation-name: dark_light_dark;
-    animation-duration: .5s;
+    animation-duration: .2s;
     margin: 0;
     padding: 0;
     display: flex;
@@ -110,6 +110,7 @@ header {
     padding: 10px 20px;
     border-radius: 5px;
     border: 1px solid #ffffff;
+    background-color: #0c0c27;
     color: #ffffff;
     margin-right: 10px;
     transition: background-color 0.3s, color 0.3s;
@@ -127,15 +128,15 @@ header {
 }
 
 .content {
-    position: relative;
-    top: 30px;
+    margin-top: 100px;
+    width: 100%;
     flex: 1; /* Allow the content area to grow and fill the remaining space */
 }
 
 
 /*FOOTER*/
 footer {
-    margin-top: 50px;
+    margin-top: 10px;
     height: 300px;
     border-top: 1px solid rgb(0, 0, 0);
     width: 100%;

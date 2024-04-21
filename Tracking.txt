@@ -38,10 +38,30 @@ I will create the front_end app in my Django project to display the graphic proj
 
 16 / 04 / 24
 -Finalize the style and structure for the register template ✔
--Finalize the style and structure for the login template 
+-Finalize the style and structure for the login template ✔
 -Fix the style for the username on top bar when user is authenticated and logged in, and remove colormode button and fix that structure and style. ✔
--Recustomize the style for the top bar and the footer to look profesional and  site looks like too.
+-Recustomize the style for the top bar and the footer to look profesional and sites look like too. ✔
+
+18 / 04 / 24
+-Restyle the Home page to look more professional and simpliest. ✔
+-Finalize Help page styling and structure. ✔
+-Create Help Formulary and implement in Help view and template. ✔
+
+21 / 05 / 24
+-Implement CSS and HTML for Team page.
+
 
 Remaining tasks:
 -Implement 'search' bar on top for tasks site and team site 
--Implement the initial questions and work areas(areas from the company) as initial configuration(this is to not to be configured when the app were deployed on production stage and their company using)
+-Implement the initial questions and work areas(areas from the company) as initial configuration(this is to not to be configured when the app were deployed on production stage and their company using).
+-Implement CSS and HTML for Tasks page.
+-Implement the tasks creation system on Tasks page.
+-Implement self asigned Tasks deletion system on Task page.
+-Implement the asigned task from another person not possible to be deleted system.
+-Implement self asigned tasks modification system.
+-Implement Tasks Formulary for creation and modification.
+-Implement time to deliver tasks system.
+-Implement notification system for advice workers when the task is made to be delivery.
+-Implement notification messages to advice when another people has asigned us a task.
+-Implement score system to encourage workers to complete their tasks.
+-Implement Password recuperation system.

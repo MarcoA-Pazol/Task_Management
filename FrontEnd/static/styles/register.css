@@ -1,27 +1,26 @@
-.register_container {
-    margin-top: 40px;
+.register_container{
     color: white;
     font-family: Arial, sans-serif;
     padding: 30px;
     text-align: center;
 }
 
-.register_formulary {
+.register_formulary{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.form_left, .form_right {
+.form_left, .form_right{
     margin: 30px;
 }
 
-.form_left {
+.form_left{
     flex: 1;
 }
 
-.form_right {
+.form_right{
     flex: 0.8;
 }
 
@@ -30,7 +29,7 @@ h2{
     text-align: left;
 }
 
-input[type="text"], input[type="email"], input[type="password"], button {
+input[type="text"], input[type="email"], input[type="password"], button{
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -38,7 +37,7 @@ input[type="text"], input[type="email"], input[type="password"], button {
     font-size: 14px;
 }   
 
-button {
+button{
     background-color: #1a1a3d;
     color: white;
     border: none;
@@ -46,8 +45,7 @@ button {
     cursor: pointer;
     font-size: 16px;
 }
-
-button:hover {
+button:hover{
     background-color: #1a1a4f;
 }
 
@@ -63,5 +61,5 @@ button:hover {
     text-decoration: none;
 }
 .redirect_to_login a:hover{
-    color: rgba(177, 191, 252, 0.363);
+    color: rgba(177, 191, 252, 0.4);
 }

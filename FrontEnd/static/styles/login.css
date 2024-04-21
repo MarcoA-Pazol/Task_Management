@@ -1,0 +1,68 @@
+.login_container{
+color: white;
+font-family: Arial, sans-serif;
+padding: 30px;
+text-align: center;
+}
+
+.login_formulary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+h2{
+    font-size: 12px;
+    text-align: left;
+    padding-right: 35%;
+}
+
+input[type="text"], input[type="password"], button{
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button{
+    background-color: #1a1a3d;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+button:hover{
+    background-color: #1a1a4f;
+}
+
+#missed_password{
+    color: white;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+}
+#missed_password:hover{
+    color: rgba(177, 191, 252, 0.4);
+    cursor: pointer;
+}
+.redirect_to_register{
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+}
+.redirect_to_register a{
+    color: white;
+    text-decoration: none;
+}
+.redirect_to_register a:hover{
+    color: rgba(177, 191, 252, 0.4);
+}

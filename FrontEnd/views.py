@@ -6,7 +6,7 @@ from django.contrib.auth import logout, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db import IntegrityError
 from BackEnd.models import Task, Questions #Loading models from Task_Manager/BackEnd/models.py
-from BackEnd.forms import RegistrationForm, LoginForm
+from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -20,6 +20,15 @@ def team(request):
     return render(request, 'team.html')
 
 def help(request):
+    #Formulary Loading
+    if request.method == "POST":
+        form = AskForHelpForm(request.POST)
+        if form.is_valid():
+            reason = form.cleaned_data['reason']
+            description = form.cleaned_data['description']
+    else:
+        form = AskForHelpForm()
+    
     #Retrieve all questions
     questions = Questions.objects.all()
     
@@ -32,8 +41,7 @@ def help(request):
         questions_by_category[category] = Questions.objects.filter(category=category)
     
     #Context will load questions and questions_by_category dicts
-    context = {'questions':questions, 'questions_by_category':questions_by_category}
-
+    context = {'questions':questions, 'questions_by_category':questions_by_category, 'form':form}
     return render(request, 'help.html', context)
 
 #Session views
@@ -76,4 +84,5 @@ def logout_view(request):
         return redirect('/')
     else:
         # Handle GET request (if needed)
+        logout(request)
         return redirect('/')
