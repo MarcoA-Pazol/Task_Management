@@ -141,6 +141,7 @@ footer {
     border-top: 1px solid rgb(0, 0, 0);
     width: 100%;
     background: linear-gradient(rgb(5, 5, 10), #0c0c27);
+    z-index: 998;
 }
  /*Social sites*/
  .social_sites{
