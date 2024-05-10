@@ -47,7 +47,7 @@
     width: 100%;
     margin-top: 20px;
     border-block: 1px solid white;
-    border-radius: 15px;
+    border-radius: 8px;
 }.no_teams_founded b{
     color: rgb(150, 10, 10);
 }
@@ -88,7 +88,19 @@
 
 /*Create team content*/
 .create_team_content{
-    display: none;
+    text-align: center;
+    align-items: center;
+    width: 60%;
+}.create_team_content h3{
+    font-family: sans-serif;
+    font-size: 12px;
+}.create_team_content b{
+    font-size: 14px;
+    color: rgb(78, 89, 248);
+}
+
+.create_team_form h3{
+    font-size: 16px;
 }
 
 /*Own teams content*/

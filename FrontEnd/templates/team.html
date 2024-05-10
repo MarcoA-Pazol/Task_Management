@@ -24,13 +24,13 @@
             {% if teams %}
                 <form method="POST" action="">
                     <h2>Join on a team:</h2>
-                    {{ form.access_code }}
+                    {{ join_team_form.access_code }}
                     <button type="submit">Submit</button>
                 </form>
                 {% for team in teams %}
                     <div class="team_overview">
                         <h2>{{ team.name }}</h2>
-                        <p>{{ team.desciption }}</p>
+                        <h6>{{ team.desciption }}</h6>
                         <h3>Leader: {{ team.owner }}</h3>
                     </div>
                 {% endfor %}
@@ -41,7 +41,7 @@
                     
                     <form method="POST" action="" class="join_team_form">
                         <h3>ENTER CODE</h3>
-                        {{ form.access_code }}
+                        {{ join_team_form.access_key }}
                         <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -53,7 +53,19 @@
         </div>
 
         <div class="create_team_content">
-            Create team
+            <h2>Create Team</h2>
+            <h3><b>🛈 </b>Create your teams, you could add tasks, invite employees and some more.</h3>
+            <hr>
+            <form method="POST" action="" class="create_team_form">
+                {% csrf_token %}
+                <h3>Title</h3>
+                {{create_team_form.name}}
+                <h3>General description</h3>
+                {{create_team_form.description}}
+                <h3>Access key</h3>
+                {{create_team_form.access_key}}
+                <button type="submit">Submit</button>
+            </form>
         </div>
 
         <div class="own_teams_content">

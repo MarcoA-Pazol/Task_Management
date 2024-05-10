@@ -1,5 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django import forms
+
+#Lists for choiceable values
+OCCUPATION_CHOICES = [
+        ['Back-End', 'Back-End Developer'],
+        ['Graphic Design', 'Graphic Desinger'],
+        ['User Experience Design', 'UX Designer']
+    ]
 
 """All team management relationed models"""
 class Employee(AbstractUser):
@@ -7,29 +15,30 @@ class Employee(AbstractUser):
     last_name = models.CharField(max_length=30)
     address = models.CharField(max_length=255)
     birthday = models.DateField()
-    department = models.CharField(max_length=200)
+    occupation = models.CharField(max_length=50, choices=OCCUPATION_CHOICES, default=None)
+    department = models.CharField(max_length=50)
     is_active = models.BooleanField(default=True)
-        
+    
     def __str__(self):
         return self.username
 
 class Team(models.Model):
     owner = models.OneToOneField(Employee, on_delete=models.CASCADE, related_name="team_owner")
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=30)
     description = models.TextField()
-    area = models.CharField(max_length=200)
+    department = models.CharField(max_length=50)
     members = models.ManyToManyField(Employee, related_name='team_members')
     created_at = models.DateTimeField(auto_now_add=True)
-    access_code = models.CharField(max_length=8)
+    access_key = models.CharField(max_length=8)
     
     def __str__(self):
         return self.name
     
 class Team_Task(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=50)
     description = models.TextField()
     due_date = models.DateTimeField()
-    priority = models.CharField(max_length=100)
+    priority = models.CharField(max_length=50)
     status = models.BooleanField(default="Uncompleted")
     created_at = models.DateTimeField(auto_now_add=True)
     assigned_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='assigned_team')
@@ -41,10 +50,10 @@ class Team_Task(models.Model):
 
 #Personal Tasks Relationed Models
 class Personal_Task(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=50)
     description = models.TextField()
     due_date = models.DateTimeField()
-    priority = models.CharField(max_length=100)
+    priority = models.CharField(max_length=50)
     status = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='owner')
@@ -57,9 +66,9 @@ class Personal_Task(models.Model):
 
 #Questions model for help section 
 class Help_Question(models.Model):
-    question = models.CharField(max_length=200)
+    question = models.CharField(max_length=50)
     answer = models.TextField()
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=50)
     
     def __str__(self):
         return self.question

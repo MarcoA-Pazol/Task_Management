@@ -15,7 +15,7 @@ class RegistrationForm(forms.ModelForm):
 
     class Meta:
         model = Employee
-        fields = ['first_name', 'last_name', 'username', 'password', 'email', 'address', 'birthday', 'department']
+        fields = ['first_name', 'last_name', 'username', 'password', 'email', 'address', 'birthday', 'occupation']
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -26,11 +26,16 @@ class RegistrationForm(forms.ModelForm):
         user.email = self.cleaned_data['email']
         user.address = self.cleaned_data['address']
         user.birthday = self.cleaned_data['birthday']
-        user.department = self.cleaned_data['department']
+        user.ocupation = self.cleaned_data['ocupation']
         if commit:
             user.save()
         return user
 
     
 class JoinTeamForm(forms.Form):
-    access_code = forms.CharField(max_length=8)
+    access_key = forms.CharField(max_length=8)
+    
+class CreateTeamForm(forms.Form):
+    name = forms.CharField(max_length=30)
+    description = forms.CharField(widget=forms.Textarea)
+    access_key = forms.CharField(max_length=8)

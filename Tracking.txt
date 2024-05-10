@@ -51,9 +51,15 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement CSS and HTML for Team page.
 
 27 / 04 / 24
--Create the needed models for personal tasks, teams, team tasks, etc. The necessary to well architechture and application workflow.
--Structure the Team page(HTML).
+-Create the needed models for personal tasks, teams, team tasks, etc. The necessary to well architechture and application workflow. ✔
+-Structure the Team page(HTML). ✔
 -Give style(CSS) to Team page.  
+
+09 / 05 / 24
+-Define a list of occupation choices in model or forms.py file.
+-Use a ChoiceField in form to display the list of occupation options.
+-Set up a function or method to determine the department based on the selected occupation.
+-Update the department field in your Employee model based on the selected occupation.
 
 
 Remaining tasks:

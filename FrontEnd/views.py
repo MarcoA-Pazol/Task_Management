@@ -6,31 +6,71 @@ from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db import IntegrityError
 from BackEnd.models import Team_Task, Help_Question, Team, Employee #Loading models from Task_Manager/BackEnd/models.py
-from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm
+from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm
+
+#Functions
+def get_department(occupation):
+    if occupation == "Back-End Developer":
+        department = "Software Developing"
+    elif occupation == "Front-End Developer":
+        department = "Software Developing"
+    elif occupation == "Full-Stack Developer":
+        department = "Software Developing"
+    else:
+        department = "None" 
+
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
+
 
 @login_required
 def tasks(request):
     return render(request, 'tasks.html')
 
+
 @login_required
 def team(request):
     #Formulary loading
     if request.method == "POST":    
-        form = JoinTeamForm(request.POST)
-        if form.is_valid():
-            access_code = form.cleaned_data['access_code']
+        join_team_form = JoinTeamForm(request.POST)
+        create_team_form = CreateTeamForm(request.POST)
+        
+        if join_team_form.is_valid():
+            access_key = join_team_form.cleaned_data['access_key']
+        
+        if create_team_form.is_valid():
+            #Cleane data for object creation(Team)
+            name = create_team_form.cleaned_data['name']
+            description = create_team_form.cleaned_data['description']
+            access_key = create_team_form.cleaned_data['access_key']
+            #Get the current user(owner)
+            owner = request.user
+            #Get current user´s department
+            department = owner.department
+            
+            try:
+                team = Team.objects.create(owner=owner, name=name, description=description, department=department, access_key=access_key)
+                team.members.add(owner)
+                team.save()
+                return redirect('/')
+            except IntegrityError:
+                create_team_form.add_error('username', 'This username already exists, try another one.')
+                print(IntegrityError)
+            except Exception as e:
+                print(e)
     else:
-        form = JoinTeamForm()
+        join_team_form = JoinTeamForm()
+        create_team_form = CreateTeamForm()
     
     #Retireve all teams you are joined
     teams = Team.objects.all()
     
     #Context
-    context = {'teams': teams, 'form': form}
+    context = {'teams': teams, 'join_team_form': join_team_form, 'create_team_form': create_team_form}
     return render(request, 'team.html', context)
+
 
 def help(request):
     #Formulary Loading
@@ -57,6 +97,7 @@ def help(request):
     context = {'questions':questions, 'questions_by_category':questions_by_category, 'form':form}
     return render(request, 'help.html', context)
 
+
 #Session views
 def login(request):
     if request.method == 'POST':
@@ -69,6 +110,7 @@ def login(request):
         form = LoginForm()
     return render(request, 'registration/login.html', {'form':form})
 
+
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -78,10 +120,15 @@ def register(request):
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
+            occupation = form.cleaned_data['occupation']
+            
+            #Get department depending the selected ocupation    #   #   #   #   #
+            department = get_department(occupation=occupation)
+            
             #Create new Employee
             try:
                 user = form.save()
-                user = Employee.objects.create(username=username, password=password, email=email, first_name=form.first_name, last_name=form.last_name, address=form.address, birthday=form.birthday, department=form.department)
+                user = Employee.objects.create(username=username, password=password, email=email, first_name=form.first_name, last_name=form.last_name, address=form.address, birthday=form.birthday, occupation=occupation ,department=department)
             except IntegrityError:
                 form.add_error('username', 'This username already exists, try another one.')
                 print(IntegrityError)
