@@ -14,13 +14,14 @@ class Employee(AbstractUser):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     address = models.CharField(max_length=255)
-    birthday = models.DateField()
-    occupation = models.CharField(max_length=50, choices=OCCUPATION_CHOICES, default=None)
-    department = models.CharField(max_length=50)
+    birthday = models.DateField(default="2024-01-01")
+    occupation = models.CharField(max_length=50, default="Worker")
+    department = models.CharField(max_length=50, default="Production")
     is_active = models.BooleanField(default=True)
     
     def __str__(self):
         return self.username
+    
 
 class Team(models.Model):
     owner = models.OneToOneField(Employee, on_delete=models.CASCADE, related_name="team_owner")
@@ -29,10 +30,11 @@ class Team(models.Model):
     department = models.CharField(max_length=50)
     members = models.ManyToManyField(Employee, related_name='team_members')
     created_at = models.DateTimeField(auto_now_add=True)
-    access_key = models.CharField(max_length=8)
+    access_key = models.CharField(max_length=8, primary_key=True)
     
     def __str__(self):
         return self.name
+    
     
 class Team_Task(models.Model):
     title = models.CharField(max_length=50)
@@ -63,6 +65,7 @@ class Personal_Task(models.Model):
     
     def __str__(self):
         return self.title
+    
 
 #Questions model for help section 
 class Help_Question(models.Model):
@@ -73,7 +76,6 @@ class Help_Question(models.Model):
     def __str__(self):
         return self.question
 
-    
 
 #This class is for a sugested model, the comments that I suggest to the client to add this part because it can be useful and interesting to add this part on a every task if the Employee have a sugestion, comment, complaint or doubt.
 class Comment(models.Model):

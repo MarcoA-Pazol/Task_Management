@@ -1,0 +1,51 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/create_team.css' %}">
+    <script src="{% static 'scripts/team.js' %}"></script>
+
+    <aside class="team_options_menu">
+        <ul>
+            <a href="{% url "team" %}"><li><h2>Overview</h2></li></a>
+            <a href="{% url "join_team" %}"><li><h2>Join on a team</h2></li></a>
+            <a href="{% url "create_team" %}"><li><h2>Create team</h2></li></a>
+        </ul>
+    </aside>
+
+    <!--This content will be displayed depending the chosen option on left menu "team_options_menu"-->
+    <div class="team_container">
+        <div class="create_team_content">
+            {% if have_team %}
+                <h4 id="have_team"><b>⚠</b> You are already owner of a team, you can not create another one.</h4>
+            {% else %}
+                <h2>Create Team</h2>
+                <h3><b>🛈 </b>Create your team, you could add tasks, invite employees and some more.</h3>
+                <hr>
+                <form method="POST" action="" class="create_team_form">
+                    {% csrf_token %}
+                    <h3>Title</h3>
+                    {{create_team_form.name}}
+                    <h3>General description</h3>
+                    {{create_team_form.description}}
+                    <h3>Access key</h3>
+                    {{create_team_form.access_key}}
+                    <button type="submit">Submit</button>
+
+                    {% if form.errors %}
+                        <div class="error-messages">
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -56,11 +56,28 @@ I will create the front_end app in my Django project to display the graphic proj
 -Give style(CSS) to Team page.  
 
 09 / 05 / 24
--Define a list of occupation choices in model or forms.py file.
--Use a ChoiceField in form to display the list of occupation options.
--Set up a function or method to determine the department based on the selected occupation.
--Update the department field in your Employee model based on the selected occupation.
+-Define a list of occupation choices in model or forms.py file. ✔
+-Use a ChoiceField in form to display the list of occupation options. ✔
+-Set up a function or method to determine the department based on the selected occupation. ✔
+-Update the department field in your Employee model based on the selected occupation. ✔
 
+14 / 05 / 24
+-Comprobe the login(When new user is "created", it does not be logged automatically) ✔
+-Comprobe user creation(Formulary does not being valid) ✔
+-Comprobe if-else of "have_team" to display the create_team_form or not (It seems to be True when user join on a team via key_code), but when page is loaded it seems to be False
+-Comprobe the access_key is unique(primary key). ✔
+
+16 / 05 / 24
+-Create Team/... urls like "Join Team", "Create Team". ✔   
+-Include urls on a Team/... urls. ✔
+-Include templates for every team urls. ✔
+-Include styles for every team urls. ✔
+-Include view for every team urls. ✔
+
+17 / 05 / 24
+-Check every user does not initialize as a member of any team.
+-Manage team creation repeated access key to not display 404 error page when repeated access key is inputed in the join team form, just show a message on the page.
+-Fix CreateTeam and JoinTeam formularies loading in their respective templates.
 
 Remaining tasks:
 -Implement 'search' bar on top for tasks site and team site 

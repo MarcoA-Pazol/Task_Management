@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/join_team.css' %}">
+    <script src="{% static 'scripts/team.js' %}"></script>
+
+    <aside class="team_options_menu">
+        <ul>
+            <a href="{% url "team" %}"><li><h2>Overview</h2></li></a>
+            <a href="{% url "join_team" %}"><li><h2>Join on a team</h2></li></a>
+            <a href="{% url "create_team" %}"><li><h2>Create team</h2></li></a>
+        </ul>
+    </aside>
+
+    <!--This content will be displayed depending the chosen option on left menu "team_options_menu"-->
+    <div class="team_container">
+        <div class="join_team_content">
+            <form method="POST" action="" class="join_team_form">
+                {% csrf_token %}
+                <h2>Join on a team:</h2>
+                {{ join_team_form.access_key }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
