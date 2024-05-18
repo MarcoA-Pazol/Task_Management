@@ -27,11 +27,11 @@
                 <form method="POST" action="" class="create_team_form">
                     {% csrf_token %}
                     <h3>Title</h3>
-                    {{create_team_form.name}}
+                    {{form.name}}
                     <h3>General description</h3>
-                    {{create_team_form.description}}
+                    {{form.description}}
                     <h3>Access key</h3>
-                    {{create_team_form.access_key}}
+                    {{form.access_key}}
                     <button type="submit">Submit</button>
 
                     {% if form.errors %}

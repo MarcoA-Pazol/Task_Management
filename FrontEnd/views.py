@@ -39,7 +39,7 @@ def tasks(request):
 @login_required
 def team(request):    
     #Retireve all teams you are joined
-    teams = Team.objects.all()
+    teams = Team.objects.filter(members=request.user)
     #Context
     context = {'teams': teams}
     return render(request, 'team/team.html', context)
@@ -54,7 +54,7 @@ def join_team(request):
                 team = Team.objects.get(access_key=access_key_join)
                 team.members.add(request.user)
                 team.save()
-                return redirect('team/')
+                return redirect('/team/')
             except Team.DoesNotExist:
                 form.add_error('access_key', 'Invalid access key.')
     else:
@@ -64,6 +64,16 @@ def join_team(request):
     return render(request, 'team/join_team.html', context)
 
 def create_team(request):
+    #Obtain team if the owner has one
+    try:
+        owner = request.user
+        if Team.objects.get(owner=owner) is not None:
+            have_team = True
+        else:
+            have_team = False
+    except:
+        have_team = False
+        
     if request.method == "POST":
         form = CreateTeamForm(request.POST)
         if form.is_valid():
@@ -76,12 +86,6 @@ def create_team(request):
                 #Get current user´s department
                 department = owner.department
                 
-                #Obtain team if the owner has one
-                if Team.objects.get(owner=owner) is not None:
-                    have_team = True
-                else:
-                    have_team = False
-                
                 if Team.objects.filter(access_key=access_key_create).exists():
                     form.add_error('access_key', 'The access key you have provided already is in use, please try with another.')
                     print("⚠ Access key already exists ⚠")
@@ -92,14 +96,15 @@ def create_team(request):
                         team.save()
                         return redirect('/')
                     except IntegrityError:
-                        form.add_error('username', 'This username already exists, try another one.')
+                        form.add_error('name', 'You are already owner of a team. You can not create another one.')
                         print(IntegrityError)
+                        return redirect('/team/create/')
                     except Exception as e:
                         print(e)
     else:
         form = CreateTeamForm()
     
-    context = {'form':form}
+    context = {'form':form, 'have_team':have_team}
     return render(request, 'team/create_team.html', context)
 
 

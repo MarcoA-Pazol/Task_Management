@@ -48,12 +48,12 @@ I will create the front_end app in my Django project to display the graphic proj
 -Create Help Formulary and implement in Help view and template. ✔
 
 21 / 04 / 24
--Implement CSS and HTML for Team page.
+-Implement CSS and HTML for Team page. ✔
 
 27 / 04 / 24
 -Create the needed models for personal tasks, teams, team tasks, etc. The necessary to well architechture and application workflow. ✔
 -Structure the Team page(HTML). ✔
--Give style(CSS) to Team page.  
+-Give style(CSS) to Team page. ✔ 
 
 09 / 05 / 24
 -Define a list of occupation choices in model or forms.py file. ✔
@@ -64,7 +64,6 @@ I will create the front_end app in my Django project to display the graphic proj
 14 / 05 / 24
 -Comprobe the login(When new user is "created", it does not be logged automatically) ✔
 -Comprobe user creation(Formulary does not being valid) ✔
--Comprobe if-else of "have_team" to display the create_team_form or not (It seems to be True when user join on a team via key_code), but when page is loaded it seems to be False
 -Comprobe the access_key is unique(primary key). ✔
 
 16 / 05 / 24
@@ -74,14 +73,30 @@ I will create the front_end app in my Django project to display the graphic proj
 -Include styles for every team urls. ✔
 -Include view for every team urls. ✔
 
-17 / 05 / 24
--Check every user does not initialize as a member of any team.
--Manage team creation repeated access key to not display 404 error page when repeated access key is inputed in the join team form, just show a message on the page.
--Fix CreateTeam and JoinTeam formularies loading in their respective templates.
+18 / 05 / 24
+-Check every user does not initialize as a member of any team. ✔
+-Manage team creation repeated access key to not display 404 error page when repeated access key is inputed in the join team form, just show a message on the page. ✔
+-Manage team creation error when user have own team but for some reason(it must not ocurred) the owner of a team can create another team, so manage the error to just show a issue in the page and redirect to team create page. ✔
+-Fix CreateTeam and JoinTeam formularies loading in their respective templates. ✔
+-Comprobe if-else of "have_team" to display the create_team_form or not (It seems to be True when user join on a team via key_code), but when page is loaded it seems to be False ✔
 
 Remaining tasks:
--Implement 'search' bar on top for tasks site and team site 
--Implement the initial questions and work areas(areas from the company) as initial configuration(this is to not to be configured when the app were deployed on production stage and their company using).
+-Implement edit team system, to edit description or team name(With team name validation).
+-Implement button to edit owner team on teams overview (just habilitied to your own team).}
+-Implement team edit CSS.
+-Implement team edit HTML.
+-Implement team edit URL.
+-Implement team edit View.
+-Implement the way to display team overview(name, number of members, members username, description and department).
+-Implement HTML for team overview.
+-Implement CSS for team overview.
+-Implement URL for team overview.
+-Implement View for team overview.
+-Implement button to get out of a Team.
+-Own Teams must be displayed in a different border color(yellow-gold) and different owner name color(orange).
+-Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
+-Implement 'search' bar on top for tasks site and team site.
+-Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using).
 -Implement CSS and HTML for Tasks page.
 -Implement the tasks creation system on Tasks page.
 -Implement self asigned Tasks deletion system on Task page.
