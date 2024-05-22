@@ -4,7 +4,7 @@
 
     <!--This is for load styles, scripts and more from static directory.-->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'styles/join_team.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/edit_team.css' %}">
     <script src="{% static 'scripts/team.js' %}"></script>
 
     <aside class="team_options_menu">
@@ -18,11 +18,14 @@
 
     <!--This content will be displayed depending the chosen option on left menu "team_options_menu"-->
     <div class="team_container">
-        <div class="join_team_content">
-            <h2>Join on a Team</h2>
-            <form method="POST" action="" class="join_team_form">
+        <div class="edit_team_content">
+            <h2>Edit team information</h2>
+            <form method="POST" action="" class="edit_team_form">
                 {% csrf_token %}
-                <h2>Access Key: </h2>
+                <h3>{{ team_name }}</h3>
+                <h4>Description:</h4>
+                {{ form.description }}
+                <h4>Access Key:</h4>
                 {{ form.access_key }}
                 <button type="submit">Submit</button>
             </form>

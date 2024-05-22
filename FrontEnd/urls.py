@@ -10,6 +10,7 @@ urlpatterns = [
     path('team/', views.team, name='team'),
     path('team/join/', views.join_team, name='join_team'),
     path('team/create/', views.create_team, name='create_team'),
+    path('team/edit/', views.edit_team, name='edit_team'),
     #Help URLs
     path('help/', views.help, name='help'),
     #Session URLs

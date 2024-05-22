@@ -4,7 +4,7 @@ from django.contrib.auth import logout
 from django.shortcuts import render, redirect
 from django.db import IntegrityError
 from BackEnd.models import Team_Task, Help_Question, Team, Employee #Loading models from Task_Manager/BackEnd/models.py
-from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm
+from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm, EditTeamForm
 
 #Functions
 def get_department(occupation):
@@ -63,6 +63,47 @@ def join_team(request):
     context = {'form':form}
     return render(request, 'team/join_team.html', context)
 
+@login_required
+def edit_team(request):
+    #Obtain team if the owner has one
+    try:
+        owner = request.user
+        if Team.objects.get(owner=owner) is not None:
+            have_team = True
+        else:
+            have_team = False
+    except:
+        have_team = False
+    
+    if request.method == "POST":
+        form = EditTeamForm(request.POST)
+        if form.is_valid():
+            #Clean data for their use
+            description = form.cleaned_data['description']
+            access_key = form.cleaned_data['access_key']
+            
+            #Comprobe acces_key is valid and exists
+            try:
+                if Team.objects.filter(access_key=access_key).exists():
+                    if Team.objects.filter(access_key=access_key, owner=owner):
+                        pass
+                    else:
+                        form.add_error('access_key', 'It seems acess_key and owner does not match correctly, please comprobe your access key again.')
+                else:
+                    form.add_error('access_key', 'The access key you provided, do not exists, try again please.')
+            except IntegrityError:
+                print(IntegrityError)
+                return redirect('/team/edit/')
+            except Exception as e:
+                print(e)
+                return redirect('/team/edit/')
+    else:
+        form = EditTeamForm()
+    
+    context = {'form':form, 'have_team':have_team}
+    return render(request, 'team/edit_team.html', context)
+
+@login_required
 def create_team(request):
     #Obtain team if the owner has one
     try:
@@ -77,7 +118,7 @@ def create_team(request):
     if request.method == "POST":
         form = CreateTeamForm(request.POST)
         if form.is_valid():
-                #Cleane data for object creation(Team)
+                #Cleaned data for object creation(Team)
                 name = form.cleaned_data['name']
                 description = form.cleaned_data['description']
                 access_key_create = form.cleaned_data['access_key']

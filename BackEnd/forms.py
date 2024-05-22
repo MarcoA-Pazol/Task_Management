@@ -36,6 +36,10 @@ class RegistrationForm(forms.ModelForm):
 class JoinTeamForm(forms.Form):
     access_key = forms.CharField(max_length=8)
     
+class EditTeamForm(forms.Form):
+    description = forms.CharField(widget=forms.Textarea)
+    access_key = forms.CharField(max_length=8)
+    
 class CreateTeamForm(forms.Form):
     name = forms.CharField(max_length=30)
     description = forms.CharField(widget=forms.Textarea)

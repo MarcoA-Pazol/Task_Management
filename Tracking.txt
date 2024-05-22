@@ -78,20 +78,30 @@ I will create the front_end app in my Django project to display the graphic proj
 -Manage team creation repeated access key to not display 404 error page when repeated access key is inputed in the join team form, just show a message on the page. ✔
 -Manage team creation error when user have own team but for some reason(it must not ocurred) the owner of a team can create another team, so manage the error to just show a issue in the page and redirect to team create page. ✔
 -Fix CreateTeam and JoinTeam formularies loading in their respective templates. ✔
--Comprobe if-else of "have_team" to display the create_team_form or not (It seems to be True when user join on a team via key_code), but when page is loaded it seems to be False ✔
+-Comprobe if-else of "have_team" to display the create_team_form or not (It seems to be True when user join on a team via key_code), but when page is loaded it seems to be False. ✔
 
-Remaining tasks:
+21 / 05 / 24
+-Implement team edit CSS. ✔
+-Implement team edit HTML. ✔
+-Implement team edit URL. ✔
+-Implement team edit View. ✔
+-Implement team edit Form. ✔
+
+22 / 05 / 24
+-Finalize team edit View.
+-Finalize team edit CSS.
+-Finalize team edit HTML.
 -Implement edit team system, to edit description or team name(With team name validation).
--Implement button to edit owner team on teams overview (just habilitied to your own team).}
--Implement team edit CSS.
--Implement team edit HTML.
--Implement team edit URL.
--Implement team edit View.
+
+23 / 05 / 24
+-Implement button to edit owner team on teams overview (just habilitied to your own team).
 -Implement the way to display team overview(name, number of members, members username, description and department).
 -Implement HTML for team overview.
 -Implement CSS for team overview.
 -Implement URL for team overview.
 -Implement View for team overview.
+
+Remaining tasks:
 -Implement button to get out of a Team.
 -Own Teams must be displayed in a different border color(yellow-gold) and different owner name color(orange).
 -Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
