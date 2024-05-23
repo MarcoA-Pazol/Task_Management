@@ -68,7 +68,8 @@ def edit_team(request):
     #Obtain team if the owner has one
     try:
         owner = request.user
-        if Team.objects.get(owner=owner) is not None:
+        team_name = Team.objects.get(owner=owner)
+        if team_name:
             have_team = True
         else:
             have_team = False
@@ -79,28 +80,42 @@ def edit_team(request):
         form = EditTeamForm(request.POST)
         if form.is_valid():
             #Clean data for their use
+            name = form.cleaned_data['name']
             description = form.cleaned_data['description']
             access_key = form.cleaned_data['access_key']
             
             #Comprobe acces_key is valid and exists
             try:
-                if Team.objects.filter(access_key=access_key).exists():
-                    if Team.objects.filter(access_key=access_key, owner=owner):
+                team_to_update = Team.objects.filter(access_key=access_key, owner=owner).first()
+                
+                if team_to_update:
+                    if name == "":
                         pass
                     else:
-                        form.add_error('access_key', 'It seems acess_key and owner does not match correctly, please comprobe your access key again.')
+                        team_to_update.name = name
+                    if description == "":
+                        pass
+                    else:
+                        team_to_update.description = description
+                    team_to_update.save()
+                    print(f'Team info updated for access_key: {access_key}, owner: {owner.username}')
+                    return redirect('/team/')
                 else:
-                    form.add_error('access_key', 'The access key you provided, do not exists, try again please.')
-            except IntegrityError:
-                print(IntegrityError)
+                    if not Team.objects.filter(access_key=access_key).exists():
+                        form.add_error('access_key', 'The access key you provided does not exists.')
+                    else:
+                        form.add_error('access_key', 'It seems access key and owner do not match correctly, please check your access key again.')
+                    print(f'Failed to update team: access_key={access_key}, owner={owner.username}')
+            except IntegrityError as e:
+                print(f'IntegrityError while updating team: {e}')
                 return redirect('/team/edit/')
             except Exception as e:
-                print(e)
+                print(f'Unexpected error while updating team: {e}')
                 return redirect('/team/edit/')
     else:
         form = EditTeamForm()
     
-    context = {'form':form, 'have_team':have_team}
+    context = {'form':form, 'have_team':have_team, 'team_name':team_name}
     return render(request, 'team/edit_team.html', context)
 
 @login_required

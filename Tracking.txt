@@ -88,20 +88,23 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement team edit Form. ✔
 
 22 / 05 / 24
--Finalize team edit View.
--Finalize team edit CSS.
--Finalize team edit HTML.
--Implement edit team system, to edit description or team name(With team name validation).
+-Finalize team edit View. ✔
+-Finalize team edit CSS. ✔
+-Finalize team edit HTML. ✔
+-Implement edit team system, to edit description or team name(With acces_key validation). ✔
 
 23 / 05 / 24
--Implement button to edit owner team on teams overview (just habilitied to your own team).
--Implement the way to display team overview(name, number of members, members username, description and department).
 -Implement HTML for team overview.
 -Implement CSS for team overview.
 -Implement URL for team overview.
 -Implement View for team overview.
 
+24 / 05 / 24
+-Implement button to edit owner team on teams overview (just habilitied to your own team).
+-Implement the way to display team overview(name, number of members, members username, description and department).
+
 Remaining tasks:
+-Implement button to delete Team(owner team)
 -Implement button to get out of a Team.
 -Own Teams must be displayed in a different border color(yellow-gold) and different owner name color(orange).
 -Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
