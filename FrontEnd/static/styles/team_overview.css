@@ -1,0 +1,88 @@
+/*Left aside options menu*/
+.team_options_menu{
+    align-items: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    border-right: 1px solid rgb(160, 160, 250);
+    height: 100%;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    z-index: 997;
+}
+.team_options_menu ul li{
+    list-style: none;
+}
+.team_options_menu ul li h2{
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+/*Team container*/
+.team_container{
+    display: flex;
+    width: 85%;
+    height: 100hv;
+    margin-left: 15%;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-family: sans-serif;
+}
+
+/*Team Overview*/
+.team_overview{
+    display: flex;
+    width: 60%;
+    background-color: black;
+    border: 1px solid white;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    color: forestgreen;
+}.team_overview h1{
+    background-color: black;
+    color: rgb(160, 160, 250);
+    width: 100%;
+}.team_overview h2{
+    background-color: rgb(160, 160, 250);
+    color: black;
+    padding: 5px 15px;
+    width: 90%;
+    margin-bottom: 0;
+}.team_overview p{
+    width: 85%;
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 15);
+    color: white;
+    flex-direction: column;
+    border-inline: 1px solid rgb(10, 10, 50);
+    margin-top: 0;
+}.team_overview p b{
+    color: rgba(190, 190, 255, .6);
+}.team_overview ul{
+    border: 1px solid rgb(10, 10, 50);
+    background-color: rgb(0, 0, 15);
+    color: rgb(80, 50, 255);
+    width: 95%;
+    padding-left: 0;
+}.team_overview ul h2{
+    width: 95%;
+    margin-top: 0;
+    margin-bottom: 10px;
+}.team_overview ul li{
+    list-style:square;
+    color: white;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-block: 2px;
+}.team_overview ul li b{
+    color: green;
+    margin-left: 35%;
+    margin-right: 15px;
+}

@@ -22,11 +22,13 @@
             <h1>Teams you are joined</h1>
             {% if teams %}
                 {% for team in teams %}
-                    <div class="team" style="background-color:random;">
-                        <h2>{{ team.name }}</h2>
-                        <h6>{{ team.description }}</h6>
-                        <h3>Leader: {{ team.owner }}</h3>
-                    </div>
+                    <a href="{% url "team_overview" team.name %}">
+                        <div class="team" style="background-color:random;">
+                            <h2>{{ team.name }}</h2>
+                            <h6>{{ team.description }}</h6>
+                            <h3>Leader: {{ team.owner }}</h3>
+                        </div>
+                    </a>
                 {% endfor %}
             {% else %}
                 <div class="no_teams_founded">

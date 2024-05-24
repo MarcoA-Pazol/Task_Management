@@ -94,14 +94,14 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement edit team system, to edit description or team name(With acces_key validation). ✔
 
 23 / 05 / 24
--Implement HTML for team overview.
--Implement CSS for team overview.
--Implement URL for team overview.
--Implement View for team overview.
+-Implement HTML for team overview. ✔
+-Implement CSS for team overview. ✔
+-Implement URL for team overview. ✔
+-Implement View for team overview. ✔
 
 24 / 05 / 24
 -Implement button to edit owner team on teams overview (just habilitied to your own team).
--Implement the way to display team overview(name, number of members, members username, description and department).
+-Implement the way to display team overview(name, owner, members username, description). ✔
 
 Remaining tasks:
 -Implement button to delete Team(owner team)

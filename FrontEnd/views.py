@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.db import IntegrityError
 from BackEnd.models import Team_Task, Help_Question, Team, Employee #Loading models from Task_Manager/BackEnd/models.py
 from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm, EditTeamForm
@@ -163,7 +163,19 @@ def create_team(request):
     context = {'form':form, 'have_team':have_team}
     return render(request, 'team/create_team.html', context)
 
-
+@login_required
+def team_overview(request, team_identifier):
+    try:
+        team = Team.objects.get(name=team_identifier)
+    except (Team.DoesNotExist, ValueError):
+        team = get_object_or_404(Team, id=team_identifier)
+    
+    #Get members list
+    members = team.members.all()
+        
+    context = {'team':team, 'members':members}
+        
+    return render(request, 'team/team_overview.html', context)
 
 
 def help(request):

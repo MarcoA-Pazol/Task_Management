@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/team_overview.css' %}">
+    <script src="{% static 'scripts/team.js' %}"></script>
+
+    <aside class="team_options_menu">
+        <ul>
+            <a href="{% url "team" %}"><li><h2>Overview</h2></li></a>
+            <a href="{% url "join_team" %}"><li><h2>Join on a team</h2></li></a>
+            <a href="{% url "create_team" %}"><li><h2>Create team</h2></li></a>
+            <a href="{% url "edit_team" %}"><li><h2>Edit team</h2></li></a>
+        </ul>
+    </aside>
+
+    <!--This content will be displayed depending the chosen option on left menu "team_options_menu"-->
+    <div class="team_container">
+        <div class="team_overview">
+            <h1>{{ team.name }}</h1>
+            <h2>Owner: {{ team.owner.username }}</h2>
+            <p><b>ㄸ</b> {{ team.description }}</p>
+            <ul>
+                <h2>Members:</h2>
+                {% for member in members %}
+                    <li><b>💠</b>   {{ member.username }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}
