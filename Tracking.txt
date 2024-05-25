@@ -100,13 +100,17 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement View for team overview. ✔
 
 24 / 05 / 24
--Implement button to edit owner team on teams overview (just habilitied to your own team).
+-Implement button to edit owner team on teams overview (just habilitied to your own team). ✔
 -Implement the way to display team overview(name, owner, members username, description). ✔
 
-Remaining tasks:
--Implement button to delete Team(owner team)
--Implement button to get out of a Team.
+25 / 05 / 24
 -Own Teams must be displayed in a different border color(yellow-gold) and different owner name color(orange).
+-Finalize Teams displaying CSS(Same style that Team overview has)
+-Implement button to get out of a Team.
+
+Remaining tasks:
+-Implement kickoff button for owner Team to kick members (Just habilited to Owner of a Team).
+-Implement button to delete Team(owner team)
 -Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
 -Implement 'search' bar on top for tasks site and team site.
 -Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using).

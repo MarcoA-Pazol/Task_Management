@@ -165,17 +165,27 @@ def create_team(request):
 
 @login_required
 def team_overview(request, team_identifier):
+    #Get selected Team to be displayed as an overview info
     try:
         team = Team.objects.get(name=team_identifier)
     except (Team.DoesNotExist, ValueError):
         team = get_object_or_404(Team, id=team_identifier)
     
+    #Comprobe if Team´s owner is the authenticated user
+    user = request.user
+    if team.owner == user:
+        is_owner = True
+    else:
+        is_owner = False
+    
     #Get members list
     members = team.members.all()
         
-    context = {'team':team, 'members':members}
+    context = {'team':team, 'members':members, 'is_owner':is_owner}
         
     return render(request, 'team/team_overview.html', context)
+
+
 
 
 def help(request):

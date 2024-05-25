@@ -86,3 +86,19 @@
     margin-left: 35%;
     margin-right: 15px;
 }
+
+#team_edit_button{
+    color: white;
+    background-color: rgb(0, 0, 15);
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(10, 10, 50);
+    border-radius: 5px;
+    cursor: hand;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    width: 80%;
+}
