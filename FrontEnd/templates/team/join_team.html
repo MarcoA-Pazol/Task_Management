@@ -22,7 +22,7 @@
             <h2>Join on a Team</h2>
             <form method="POST" action="" class="join_team_form">
                 {% csrf_token %}
-                <h2>Access Key: </h2>
+                <h3>Access Key: </h3>
                 {{ form.access_key }}
                 <button type="submit">Submit</button>
             </form>

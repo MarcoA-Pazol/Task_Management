@@ -1,4 +1,4 @@
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect, get_object_or_404
@@ -40,8 +40,10 @@ def tasks(request):
 def team(request):    
     #Retireve all teams you are joined
     teams = Team.objects.filter(members=request.user)
+    #Retrieve authenticated user
+    user = request.user
     #Context
-    context = {'teams': teams}
+    context = {'teams': teams, 'user':user}
     return render(request, 'team/team.html', context)
 
 @login_required
@@ -74,6 +76,7 @@ def edit_team(request):
         else:
             have_team = False
     except:
+        team_name = 'Team_Name'
         have_team = False
     
     if request.method == "POST":
@@ -165,14 +168,30 @@ def create_team(request):
 
 @login_required
 def team_overview(request, team_identifier):
+    #Get authenticated user
+    user = request.user
+    
     #Get selected Team to be displayed as an overview info
     try:
         team = Team.objects.get(name=team_identifier)
     except (Team.DoesNotExist, ValueError):
         team = get_object_or_404(Team, id=team_identifier)
     
+    if request.method == 'POST':
+        
+        # Lógica para salir del equipo
+        try:
+            if user in team.members.all():
+                team.members.remove(user)
+                team.save()
+                messages.success(request, "You have successfully left the team.")
+                return redirect('/team/')
+            else:
+                messages.error(request, "You are not a member of this team.")
+        except Exception as e:
+            messages.error(request, f"An error occurred: {e}")
+        
     #Comprobe if Team´s owner is the authenticated user
-    user = request.user
     if team.owner == user:
         is_owner = True
     else:

@@ -104,16 +104,30 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement the way to display team overview(name, owner, members username, description). ✔
 
 25 / 05 / 24
--Own Teams must be displayed in a different border color(yellow-gold) and different owner name color(orange).
--Finalize Teams displaying CSS(Same style that Team overview has)
--Implement button to get out of a Team.
+-Own Teams must be displayed in a different border color(yellow-gold) and different owner name color(orange). ✔
+-Finalize Teams displaying CSS(Same style that Team overview has) ✔
+-Fix Team Edit URL displaying when User has not a Team(own):cannot access local variable 'team_name' where it is not associated with a value. ✔
+
+26 / 05 / 24
+-Implement button to get out of a Team. ✔
+-Apply CSS Style to Join Team Form. ✔
+
+28 / 05 / 24
+-Implement kickoff button for owner Team to kick members (Just habilited to Owner of a Team).
+
+30 / 05 / 24
+-Implement button to delete Team(owner team)
+-Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using).
+
+31 / 05 / 24
+-Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
+
+01 / 05 / 24
+-Implement 'search' bar on top for Team site.
+
 
 Remaining tasks:
--Implement kickoff button for owner Team to kick members (Just habilited to Owner of a Team).
--Implement button to delete Team(owner team)
--Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
--Implement 'search' bar on top for tasks site and team site.
--Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using).
+-Implement 'search' bar on top for Task site.
 -Implement CSS and HTML for Tasks page.
 -Implement the tasks creation system on Tasks page.
 -Implement self asigned Tasks deletion system on Task page.
@@ -125,3 +139,5 @@ Remaining tasks:
 -Implement notification messages to advice when another people has asigned us a task.
 -Implement score system to encourage workers to complete their tasks.
 -Implement Password recuperation system.
+-Apply CSS Style to Update Team Form
+-Apply CSS Style to Create Team Form

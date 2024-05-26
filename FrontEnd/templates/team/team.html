@@ -19,16 +19,26 @@
     <!--This content will be displayed depending the chosen option on left menu "team_options_menu"-->
     <div class="team_container">
         <div class="teams_overview_content">
-            <h1>Teams you are joined</h1>
+            <h1><b>▼</b> All Teams You Are Member <b>▼</b></h1>
             {% if teams %}
                 {% for team in teams %}
-                    <a href="{% url "team_overview" team.name %}">
-                        <div class="team" style="background-color:random;">
-                            <h2>{{ team.name }}</h2>
-                            <h6>{{ team.description }}</h6>
-                            <h3>Leader: {{ team.owner }}</h3>
-                        </div>
-                    </a>
+                    {% if team.owner == user %}
+                        <a href="{% url "team_overview" team.name %}">
+                            <div class="team" style="border: 1px solid gold;">
+                                <h2>{{ team.name }}</h2>
+                                <h3>Leader: <b style="color:gold;">{{ team.owner }}</b></h3>
+                                <h6>{{ team.description }}</h6>
+                            </div>
+                        </a>
+                    {% else %}
+                        <a href="{% url "team_overview" team.name %}">
+                            <div class="team" style="border: 1px solid rgb(40, 120, 250);">
+                                <h2>{{ team.name }}</h2>
+                                <h3>Leader: {{ team.owner }}</h3>
+                                <h6>{{ team.description }}</h6>
+                            </div>
+                        </a>
+                    {% endif %}
                 {% endfor %}
             {% else %}
                 <div class="no_teams_founded">

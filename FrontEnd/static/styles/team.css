@@ -41,11 +41,43 @@
     text-align: center;
     align-items: center;
     width: 60%;
+}.teams_overview_content h1 b{
+    color: rgb(5, 60, 120);
 }
 
+/*Team display*/
 .team{
-    background-color: cadetblue;
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}.team h2{
+    color: rgb(160, 160, 250);
+    width: 100%;
+}.team h3{
+    background-color: rgb(160, 160, 250);
+    color: black;
+    padding: 5px 15px;
+    width: 90%;
+    margin-bottom: 0;
+}.team h6{
+    width: 85%;
+    padding: 10px 20px;
+    background-color: rgb(0, 0, 15);
+    color: white;
+    flex-direction: column;
+    border-inline: 1px solid rgb(10, 10, 50);
+    margin-top: 0;
 }
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
 
 .no_teams_founded{
     width: 100%;

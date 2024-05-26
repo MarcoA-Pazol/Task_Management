@@ -30,6 +30,11 @@
             </ul>
             {% if is_owner %}
                 <a href="{% url 'edit_team' %}"><button id="team_edit_button">Update</button></a>
+            {% else %}
+            <form method="POST" action="{% url 'team_overview' team_identifier=team.name %}" id="leave_team_form">
+                {% csrf_token %}
+                <button type="submit" id="leave_team_button">Leave Team</button>
+            </form>
             {% endif %}
         </div>
     </div>

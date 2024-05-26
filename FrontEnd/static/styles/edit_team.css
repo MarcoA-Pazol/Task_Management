@@ -33,3 +33,35 @@
     color: white;
     font-family: sans-serif;
 }
+
+
+/*There is no Team content*/
+.no_team_title{
+    margin-top: 50px;
+    color: white;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+.no_team_title b{
+    color: rgb(190, 0, 20);
+}
+a{
+    text-decoration: none;
+    width: 80%;
+}
+#create_team_button{
+    text-align: center;
+    cursor: hand;
+    background-color: black;
+    border: 1px solid rgb(160, 160, 250);
+    color: rgb(30, 50, 120);
+    border-radius: 2px;
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 0px;
+    font-family: sans-serif;
+}
+#create_team_button:hover{
+    color: rgb(160, 160, 250);
+    transform: scale(1.05);
+}
