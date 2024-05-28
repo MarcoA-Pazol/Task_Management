@@ -11,7 +11,9 @@ urlpatterns = [
     path('team/join/', views.join_team, name='join_team'),
     path('team/create/', views.create_team, name='create_team'),
     path('team/edit/', views.edit_team, name='edit_team'),
-    path('team/overview/<str:team_identifier>/', views.team_overview, name='team_overview'),    #Help URLs
+    path('team/overview/<str:team_identifier>/', views.team_overview, name='team_overview'),
+    path('team/kickoff/<str:team_identifier>/<str:member_identifier>/', views.kick_out_member, name='kickout_member'),
+    #Help URLs
     path('help/', views.help, name='help'),
     #Session URLs
     path('login/', views.login, name='login'),

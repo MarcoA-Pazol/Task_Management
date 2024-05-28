@@ -25,7 +25,22 @@
             <ul>
                 <h2>Members:</h2>
                 {% for member in members %}
-                    <li><b>💠</b>   {{ member.username }}</li>
+                    {% if is_owner == False %}
+                        <li><b>💠</b>   {{ member.username }} </li>
+                    {% else %}
+                        {% if member.username == team.owner.username%}
+                            <li><b>💠</b>   {{ member.username }}</li>
+                        {% else %}
+                            <li>
+                                <b>💠</b>   
+                                {{ member.username }} 
+                                <form method="POST" action="{% url 'kickout_member' team_identifier=team.name member_identifier=member.username %}" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" id="remove_member_button">Kick-Out</button>
+                                </form>
+                            </li>
+                        {% endif %}
+                    {% endif %}
                 {% endfor %}
             </ul>
             {% if is_owner %}

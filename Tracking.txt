@@ -113,31 +113,53 @@ I will create the front_end app in my Django project to display the graphic proj
 -Apply CSS Style to Join Team Form. ✔
 
 28 / 05 / 24
--Implement kickoff button for owner Team to kick members (Just habilited to Owner of a Team).
+-Implement kickoff button CSS and HTML. ✔
+-Implement kickoff button for owner Team to kick members (Just habilited to Owner of a Team). ✔
+-Implement kickoff button functionality on 'kick_out_member' View. ✔
 
 30 / 05 / 24
+-Apply CSS Style to Update Team Form
+-Apply CSS Style to Create Team Form
+-Implement CSS and HTML for Tasks page.
+
+01 / 05 / 24
 -Implement button to delete Team(owner team)
 -Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using).
 
-31 / 05 / 24
+02 / 05 / 24
 -Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
 
-01 / 05 / 24
--Implement 'search' bar on top for Team site.
-
+06 / 05 / 24
+-Implement 'search' bar for Team page.
+-Implement 'search' bar for Task page.
 
 Remaining tasks:
+/Notifications System
+-Implement Notifications button on Top Bar.
+-Implement Notifications Template.
+-Implement Notifications 
+-Implement Notifications to Team owner when new user has joined on their Team.
+-Implement Notifications to Team member when Team owner has removed him for their Team.
+-Implement Notification system for advice workers when the task is made to be delivery.
+-Implement Notification messages to advice when another people has asigned us a task.
+
+/Search Bar
 -Implement 'search' bar on top for Task site.
--Implement CSS and HTML for Tasks page.
+
+/Tasks System
 -Implement the tasks creation system on Tasks page.
 -Implement self asigned Tasks deletion system on Task page.
 -Implement the asigned task from another person not possible to be deleted system.
 -Implement self asigned tasks modification system.
 -Implement Tasks Formulary for creation and modification.
 -Implement time to deliver tasks system.
--Implement notification system for advice workers when the task is made to be delivery.
--Implement notification messages to advice when another people has asigned us a task.
+
+/Profile Visualization
+-Implement profile view.
+-Implement profile template.
+-Implement profile HTML and CSS.
+-Implement profile URL.
 -Implement score system to encourage workers to complete their tasks.
+
+/Authentication System
 -Implement Password recuperation system.
--Apply CSS Style to Update Team Form
--Apply CSS Style to Create Team Form

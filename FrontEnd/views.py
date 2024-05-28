@@ -204,6 +204,30 @@ def team_overview(request, team_identifier):
         
     return render(request, 'team/team_overview.html', context)
 
+@login_required
+def kick_out_member(request, team_identifier, member_identifier):
+    # Obtener el equipo y el miembro a ser expulsado
+    team = get_object_or_404(Team, name=team_identifier)
+    member = get_object_or_404(Employee, username=member_identifier)
+
+    # Verificar que el usuario autenticado es el propietario del equipo
+    if request.user != team.owner:
+        messages.error(request, "You do not have permission to perform this action.")
+        return redirect('team_overview', team_identifier=team_identifier)
+
+    # Manejar la solicitud POST para expulsar al miembro
+    if request.method == 'POST':
+        if member in team.members.all():
+            team.members.remove(member)
+            team.save()
+            messages.success(request, f"{member.username} has been successfully removed from the team.")
+        else:
+            messages.error(request, "The user is not a member of this team.")
+        return redirect('team_overview', team_identifier=team_identifier)
+
+    # Redirigir a la página de resumen del equipo si no es una solicitud POST
+    return redirect('team_overview', team_identifier=team_identifier)
+
 
 
 
