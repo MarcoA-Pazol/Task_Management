@@ -1,0 +1,45 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/task_base.css' %}">
+    <!--This is for load styles, scripts and more from static directory.-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/tasks_base.css' %}">
+    <script src="{% static 'scripts/tasks.js' %}"></script>
+    
+    <div class="task_page_body">
+
+        <aside class="aside_tasks_menu">
+            <ul>
+                <li><h3 class="aside_menu_subtitle">Asigned Tasks</h3></li>
+                <li><a href="{% url 'tasks' %}">Overview</a></li>
+                <li><a href="{% url 'tasks' %}">Completed</a></li>
+                <li><a href="{% url 'tasks' %}">In Evaluation</a></li>
+                <li><a href="{% url 'tasks' %}">Send Evaluation</a></li>
+
+                <li><h3 class="aside_menu_subtitle">Own Team Tasks</h3></li>
+                <li><a href="{% url 'tasks' %}">Overview</a></li>
+                <li><a href="{% url 'tasks' %}">Assign Task</a></li>
+                <li><a href="{% url 'tasks' %}">Update Task</a></li>
+                <li><a href="{% url 'tasks' %}">Remove Task</a></li>
+
+                <li><h3 class="aside_menu_subtitle">Personal Tasks</h3></li>
+                <li><a href="{% url 'tasks' %}">Overview</a></li>
+                <li><a href="{% url 'create_personal_task' %}">Assign Task</a></li>
+                <li><a href="{% url 'tasks' %}">Update Task</a></li>
+                <li><a href="{% url 'create_personal_task' %}">Remove</a></li>
+                <li><a href="{% url 'tasks' %}">Send Evaluation</a></li>
+
+            </ul>
+        </aside>
+        
+        <div class="task_content">
+            {% block task_content %}
+                <!--Task content will be displayed here-->
+            {% endblock %}
+        </div>
+
+    </div>
+
+{% endblock %}

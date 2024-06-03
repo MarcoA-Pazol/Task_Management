@@ -1,0 +1,9 @@
+{% extends 'tasks/tasks_base.html' %}
+
+{% block task_content %}
+    {% if task in tasks %}
+        <h2>{{ tasks.title }}</h2>
+    {% else %}
+        <h2>There is no task to show here.</h2>
+    {% endif %}
+{% endblock %}

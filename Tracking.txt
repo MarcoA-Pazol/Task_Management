@@ -118,20 +118,23 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement kickoff button functionality on 'kick_out_member' View. ✔
 
 30 / 05 / 24
--Apply CSS Style to Update Team Form
--Apply CSS Style to Create Team Form
--Implement CSS and HTML for Tasks page.
+-Apply CSS Style to Update Team Form ✔
+-Apply CSS Style to Create Team Form ✔
+-Implement initial CSS and HTML for Tasks page. ✔
 
-01 / 05 / 24
--Implement button to delete Team(owner team)
+05 / 05 / 24
+-Implement button to delete Team(owner team). ✔
+-Implement delete team URL. ✔
+-Implement CSS to delete team button acordingly to site style.
+-Implement delete team View
 -Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using).
 
-02 / 05 / 24
+07 / 05 / 24
 -Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
 
-06 / 05 / 24
--Implement 'search' bar for Team page.
--Implement 'search' bar for Task page.
+08 / 05 / 24
+
+09 / 05 / 24
 
 Remaining tasks:
 /Notifications System
@@ -144,7 +147,8 @@ Remaining tasks:
 -Implement Notification messages to advice when another people has asigned us a task.
 
 /Search Bar
--Implement 'search' bar on top for Task site.
+-Implement 'search' bar for Team page.
+-Implement 'search' bar for Task page.
 
 /Tasks System
 -Implement the tasks creation system on Tasks page.

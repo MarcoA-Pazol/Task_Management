@@ -49,6 +49,8 @@
 }.join_team_content h2{
     color: rgb(160, 160, 250);
 }
+
+/*Join Team Form*/
 .join_team_form{
     display: flex;    
     flex-direction: column;

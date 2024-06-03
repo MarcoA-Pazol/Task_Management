@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db import IntegrityError
-from BackEnd.models import Team_Task, Help_Question, Team, Employee #Loading models from Task_Manager/BackEnd/models.py
+from BackEnd.models import Team_Task, Help_Question, Team, Employee, Personal_Task #Loading models from Task_Manager/BackEnd/models.py
 from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm, EditTeamForm
 
 #Functions
@@ -31,7 +31,18 @@ def home(request):
 #TASK views
 @login_required
 def tasks(request):
-    return render(request, 'tasks.html')
+    #Get authenticated user
+    user = request.user 
+    #Retrieve all tasks you have asigned.
+    tasks = Team_Task.objects.filter(assigned_employee=user)
+    #Context
+    context = {'user':user, 'tasks':tasks}
+    return render(request, 'tasks/tasks.html', context)
+
+
+@login_required
+def create_personal_task(request):
+    return render(request, 'tasks/create_personal_task.html')
 
 
 
@@ -203,6 +214,14 @@ def team_overview(request, team_identifier):
     context = {'team':team, 'members':members, 'is_owner':is_owner}
         
     return render(request, 'team/team_overview.html', context)
+
+@login_required
+def delete_team(request, team_identifier):
+    #Obtain team to be deleted
+    team = get_object_or_404(Team, name=team_identifier)
+    
+    #Verify if request method is POST to execute the function
+    pass
 
 @login_required
 def kick_out_member(request, team_identifier, member_identifier):

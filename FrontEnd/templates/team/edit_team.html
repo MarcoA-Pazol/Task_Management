@@ -20,14 +20,14 @@
     <div class="team_container">
         <div class="edit_team_content">
             {% if have_team %}
-                <h2>Update {{ team_name }} info</h2>
+                <h2>Update "{{ team_name }}" info</h2>
                 <form method="POST" action="" class="edit_team_form">
                     {% csrf_token %}
-                    <h4>Name</h4>
+                    <h3>Name</h3>
                     {{ form.name }}
-                    <h4>Description:</h4>
+                    <h3>Description:</h3>
                     {{ form.description }}
-                    <h4>Access Key:</h4>
+                    <h3>Access Key:</h3>
                     {{ form.access_key }}
                     <button type="submit">Submit</button>
                 </form>
