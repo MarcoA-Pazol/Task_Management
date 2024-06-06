@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db import IntegrityError
-from BackEnd.models import Team_Task, Help_Question, Team, Employee, Personal_Task #Loading models from Task_Manager/BackEnd/models.py
+from BackEnd.models import Team_Task, Help_Question, Team, Employee, Personal_Task, save_initial_help_questions
 from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm, EditTeamForm
 
 #Functions
@@ -218,10 +218,20 @@ def team_overview(request, team_identifier):
 @login_required
 def delete_team(request, team_identifier):
     #Obtain team to be deleted
-    team = get_object_or_404(Team, name=team_identifier)
+    try:
+        team = get_object_or_404(Team, name=team_identifier)
+    except:
+        team = Team.objects.filter(name=team_identifier).get()
     
-    #Verify if request method is POST to execute the function
-    pass
+    if request.method == "POST":
+        try:
+            Team.objects.filter(name=team).delete()
+            messages.success(request, f'{team.name} Team has been deleted succesfully!')
+        except:    
+            messages.error(request, "The Team could not be removed succesfully.")
+        return redirect('/team/')
+    
+    return redirect('/team/')
 
 @login_required
 def kick_out_member(request, team_identifier, member_identifier):
@@ -252,6 +262,7 @@ def kick_out_member(request, team_identifier, member_identifier):
 
 def help(request):
     #Formulary Loading
+    save_initial_help_questions()
     if request.method == "POST":
         form = AskForHelpForm(request.POST)
         if form.is_valid():

@@ -125,16 +125,16 @@ I will create the front_end app in my Django project to display the graphic proj
 05 / 05 / 24
 -Implement button to delete Team(owner team). ✔
 -Implement delete team URL. ✔
--Implement CSS to delete team button acordingly to site style.
--Implement delete team View
--Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using).
-
-07 / 05 / 24
--Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
-
-08 / 05 / 24
+-Implement CSS to delete team button acordingly to site style. ✔
+-Implement delete team View and functionality. ✔
+-Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using). ✔
 
 09 / 05 / 24
+-Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
+
+11 / 05 / 24
+
+13 / 05 / 24
 
 Remaining tasks:
 /Notifications System

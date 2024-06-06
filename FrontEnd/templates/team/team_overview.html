@@ -45,7 +45,7 @@
             </ul>
             {% if is_owner %}
                 <a href="{% url 'edit_team' %}"><button id="team_edit_button">Update</button></a>
-                <form method="POST" action="{% url 'delete_team' team_identifier=team.name %}">
+                <form method="POST" action="{% url 'delete_team' team_identifier=team.name %}" id="delete_team_form">
                     {% csrf_token %}
                     <button type="submit" id="delete_team_button">Delete Team</button>
                 </form>

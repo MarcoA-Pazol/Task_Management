@@ -13,15 +13,17 @@
             <h1>Frequent Questions</h1>
 
             <!--Questions will be displayed automatically-->
-            {% for question in questions %}
-                <div class="accordion">
-                    <div class="question">
-                        {{question.question}}
+            {% for category, questions in questions_by_category.items %}
+                {% for question in questions %}
+                    <div class="accordion">
+                        <div class="question">
+                            {{question.question}}
+                        </div>
+                        <div class="answer">
+                            {{question.answer}}
+                        </div>
                     </div>
-                    <div class="answer">
-                        {{question.answer}}
-                    </div>
-                </div>
+                {% endfor %}
             {% endfor %}
 
             <div class="accordion">
