@@ -20,7 +20,7 @@
     <div class="team_container">
         <div class="team_overview">
             <h1>{{ team.name }}</h1>
-            <h2>Owner: {{ team.owner.username }}</h2>
+            <h2>Leader: {{ team.owner.username }}</h2>
             <p><b>ㄸ</b> {{ team.description }}</p>
             <ul>
                 <h2>Members:</h2>
@@ -56,6 +56,39 @@
             </form>
             {% endif %}
         </div>
+
+        
+        {% if is_owner %}
+            <div class="members_to_invite">
+                <h2>Add Member To Your Team</h2>
+                <h4><b>🛈</b> Invite members to your Team here by click on 'Invite' button. Just habilitied same departament workers.</h4>
+                <div>
+                    {% if members_to_invite %}
+                        <ul>
+                            {% for member in members_to_invite %}
+                                {% if member not in members %}
+                                    <li>
+                                        <h3>{{member.username}} <b>/</b> {{member.occupation}}</h3>
+                                        <form method="POST" action="{% url 'invite_member' team_identifier=team.name member_identifier=member.username %}" style="display:inline;">
+                                            {% csrf_token %}
+                                            <button type="submit" id="invite_member_button">Invite</button>
+                                        </form>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                            <h5><p></p>There are not members for your departament to be invited.</h5>
+                    {% endif %}
+                    {% if members %}
+                            <hr>
+                            {% for member in members %}
+                                <h6><b>{{member.username}}</b> is in your Team</h6>
+                            {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
     </div>
 
 {% endblock %}

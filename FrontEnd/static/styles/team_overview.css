@@ -148,3 +148,64 @@ a{
     box-shadow: rgb(250, 100, 100) 1px 1px 5px 1px;
     transition-duration: 0.2s;
 }
+
+
+/*Members to invite content*/
+.members_to_invite{
+    background-color: black;
+    border: 1px solid white;
+    width: 60%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}.members_to_invite h2{
+    color: rgb(160, 160, 250);
+    font-size: 22px;
+    margin-bottom: 0;
+}.members_to_invite h4{
+    color: white;
+    font-size: 12px;
+    border-bottom: 1px solid rgb(160, 160, 250);
+}.members_to_invite h4 b{
+    color: rgb(80, 50, 255);
+}.members_to_invite div{
+    background-color: rgb(0, 0, 15);
+    width: 100%;
+}.members_to_invite h6{
+    color: white;
+    font-size: 16px;
+}.members_to_invite h6 b{
+    color: rgb(80, 50, 255);
+}.members_to_invite ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}.members_to_invite li{
+    list-style: none;
+    display: inline-flex;
+}.members_to_invite li h3{
+    color: white;
+    font-size: 16px;
+}.members_to_invite li h3 b{
+    color: rgb(80, 50, 255);
+}.members_to_invite button{
+    background-color: rgb(0, 0, 15);
+    color: white;
+    border: 1px solid white;
+    border-radius: 2px;
+    font-family: sans-serif;
+    font-size: 14px;
+    display: inline-flex;
+    margin-left: 10px;
+    margin-top: 15px;
+    box-shadow: 1px 1px 5px 1px white;
+}.members_to_invite button:hover{
+    transform: scale(1.05);
+    transition-duration: 0.2s;
+    box-shadow: 1px 1px 2px 2px rgb(80, 50, 255);
+    background-color: rgb(10, 10, 50);
+    cursor: hand;
+}

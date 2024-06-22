@@ -1,0 +1,43 @@
+.notification{
+    background-color: rgb(10, 10, 10);
+    width: 80%;
+    border-inline: 1px solid white;
+    border-bottom: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding-block: 5px;
+    margin-left: 10%;
+    display: inline-flex;
+}
+.notification_info{
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-left: 10px;
+    color: white;
+}
+.mark_as_read{
+    background-color: green;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}.mark_as_read button{
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 100%;
+    width: 30%;
+}
+
+.no_notifications{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-block: 10px;
+    padding-block: 10px;
+}

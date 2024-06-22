@@ -29,6 +29,7 @@
             <div class="user_options_menu">
                 {% if request.user.is_authenticated %}
                     <span id="username_top">{{ request.user.username }}</span>
+                    <a id="notifications" href="{% url 'notifications' %}">{{total_notifications}}</a>
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}
                         <button type="submit" id="logout_button">Logout</button>
@@ -84,7 +85,7 @@
             </div>
             
             <div class="develop_info">
-                <h2>Developed by <b>MarcoA_Pazol</b> / <a href="github.com/MarcoA">Visit my Github for more!</a></h2>
+                <h2>Developed by <b>MarcoA_Pazol</b> / <a href="https://github.com/MarcoA">Visit my Github for more!</a></h2>
                 <h3>2024 Allrights Reserved by Productivity Solutions Inc, Contributors and Developers</h3>
             </div>
         </footer>

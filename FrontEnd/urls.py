@@ -15,6 +15,7 @@ urlpatterns = [
     path('team/edit/', views.edit_team, name='edit_team'),
     path('team/overview/<str:team_identifier>/', views.team_overview, name='team_overview'),
     path('team/kickoff/<str:team_identifier>/<str:member_identifier>/', views.kick_out_member, name='kickout_member'),
+    path('team/invite/<str:team_identifier>/<str:member_identifier>/', views.invite_member, name="invite_member"),
     path('team/delete/<str:team_identifier>/', views.delete_team, name="delete_team"),
     #Help URLs
     path('help/', views.help, name='help'),
@@ -22,6 +23,9 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
     path('logout/', views.logout_view, name='logout'),
+    #Notifications URLs
+    path('notifications/', views.notifications, name='notifications'),
+    path('notifications/mark_as_read_notification/<int:notification_identifier>/', views.mark_as_read_notification, name="mark_as_read_notification")
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

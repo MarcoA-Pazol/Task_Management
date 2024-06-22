@@ -93,6 +93,18 @@ header {
     font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
     color: #54a3e4;
+    margin-right: 10px;
+}
+
+#notifications{
+    text-decoration: none;
+    color: orangered;
+    font-size: 16px;
+    background-color: #36366693;
+    margin-right: 20px;
+    padding-inline: 8px;
+    padding-block: 2px;
+    border-radius: 6px;
     margin-right: 50px;
 }
 

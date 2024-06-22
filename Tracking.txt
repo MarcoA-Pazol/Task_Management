@@ -130,11 +130,27 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement the initial questions and work areas(areas from the company) as initial configuration(this is not to be configured when the app were deployed on production stage and their company using). ✔
 
 09 / 05 / 24
--Implement invitation system to invite members to your team depending the department(you cannot invite Designers to your Development team for example).
+-Implement invitation system to invite members to your team by button system, depending the department(you cannot invite Designers to your Development team for example), just adding members by button, not sending invitation, this will be replaced for in the future. ✔
+-Fix authentication and validation issues by adding members(Not possible to add yourself, if member is added, delete them from members_to_add list, etc). ✔
+-Implement Styling for Invite members container, buttons and info in generally. ✔
 
-11 / 05 / 24
+20 / 06 / 2024
+-Implement Notifications button on Top Bar. ✔
+-Implement Notifications Template. ✔
+-Implement Notifications View. ✔
+-Implement Notifications URL. ✔
+-Implement Notifications to Tean owner when new member is joined to a Team. ✔
 
-13 / 05 / 24
+22 / 06 / 2024
+-Finalize HTML structure for Notifications page.
+-Finalize CSS structure for Notifications page.
+-Add "Mark as Read" button for notifications. ✔
+-Marked as read notifications, must be displayed to another container of read notifications. ✔
+-Implement View to manage "Mark as Read" functionality. ✔
+-Implement Notifications to Team owner when a member has left their Team. ✔
+
+27 / 05 / 24
+-Implement Ask 'Yes' 'No' alert using JS for KickOut member, Delete Team, Leave Team formularies. 
 
 Remaining tasks:
 /Notifications System
