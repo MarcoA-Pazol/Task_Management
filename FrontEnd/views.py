@@ -145,9 +145,9 @@ def join_team(request):
                     team.save()
                     team_members = team.members.all()
                     for member in team_members:
-                        if member != team.owner:
-                            notification_to_team_members = Notification.objects.create(reason="New Member Joined", message=f"'{request.user}' has joined to {team.name} Team where you are member.", destinatary=member, is_read=False)
-                    notification_to_team_owner = Notification.objects.create(reason='New Member Joined', message=f"'{request.user}' has joined to your Team.", destinatary=team.owner, is_read=False)
+                        if member != team.owner and (member != request.user):
+                            notification_to_team_members = Notification.objects.create(reason="New Member Joined", message=f'"{request.user}" has joined to "{team.name}" Team.', destinatary=member, is_read=False)
+                    notification_to_team_owner = Notification.objects.create(reason='New Member Joined', message=f'"{request.user}" has joined to your Team.', destinatary=team.owner, is_read=False)
                 return redirect('/team/')
             except Team.DoesNotExist:
                 form.add_error('access_key', 'Invalid access key.')
@@ -281,7 +281,7 @@ def team_overview(request, team_identifier):
                 team_destinataries = team.members.all()
                 for member in team_destinataries:
                     if member != team.owner:
-                        notification_to_team_members = Notification.objects.create(reason=f"Member leave {team.name} Team", message=f"'{user}' has leave {team.name} Team where you are member.", destinatary=member, is_read=False)
+                        notification_to_team_members = Notification.objects.create(reason=f"Member leave {team.name} Team", message=f'"{user}" has leave "{team.name}" Team where you are member.', destinatary=member, is_read=False)
                 return redirect('/team/')
             else:
                 messages.error(request, "You are not a member of this team.")
@@ -473,5 +473,16 @@ def mark_as_read_notification(request, notification_identifier):
             print("Notification has stablished to is_read=True state")
         except Exception as e:
             print(f'Failed to mark Notification as read: {e}')
+    
+    return redirect('notifications')
+
+@login_required
+def delete_notification(request, notification_identifier):
+    if request.method == "POST":
+        try:
+            Notification.objects.filter(id=notification_identifier).delete()
+            print("Notification has been deleted succesfully.")
+        except Exception as e:
+            print(f'Failet to delete Notification: {e}')
     
     return redirect('notifications')

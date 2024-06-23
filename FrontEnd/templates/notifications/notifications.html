@@ -5,31 +5,41 @@
     <link rel="stylesheet" href="{% static 'styles/notifications.css' %}">
 
     {% if notifications %}
+        <h2 class="notification_title">Notifications</h2>
         {% for notification in notifications %}
             <div class="notification">
                 <h4 class="notification_info">{{notification.sent_at}}</h4>
                 <h4 class="notification_info">{{notification}}</h4>
                 <form method="POST" action="{% url 'mark_as_read_notification' notification_identifier=notification.id %}" class="mark_as_read">
                     {% csrf_token %}
-                    <button type="submit">Mark as read</button>
+                    <button type="submit">OK</button>
+                </form>
+                <form method="POST" action="{% url 'delete_notification' notification_identifier=notification.id %}" class="delete_notification">
+                    {% csrf_token %}
+                    <button type="submit">DELETE</button>
                 </form>
             </div>
         {% endfor %}
     {% else %}
+        <h2 class="notification_title">Notifications</h2>
         <div class="no_notifications">
-            There are no notifications here
+            None
         </div>
     {% endif %}
 
     <div class="read_notifications">
-        <h2>Read Notifications</h2>
+        <h2 class="notification_title">Read</h2>
         {% if read_notifications %}
             {% for notification in read_notifications %}
-                <h4>{{notification.sent_at}}</h4>
-                <h4>{{notification}}</h4>
+            <div class="notification">
+                <h4 class="notification_info">{{notification.sent_at}}</h4>
+                <h4 class="notification_info">{{notification}}</h4>
+            </div>
             {% endfor %}
         {% else %}
-            <p>There are no read notifications here.</p>
+            <div class="no_notifications">
+                None
+            </div>
         {% endif %}
     </div>
 

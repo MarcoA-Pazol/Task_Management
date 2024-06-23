@@ -107,6 +107,10 @@ header {
     border-radius: 6px;
     margin-right: 50px;
 }
+#notifications:hover{
+    color: rgb(255, 100, 43);
+    background-color: #363662;
+}
 
 /* Session Menu */
 .session_menu {

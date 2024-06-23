@@ -1,3 +1,17 @@
+.notification_title{
+    width: 80%;
+    background-color: rgb(10, 10, 40);
+    color: rgb(160, 160, 190);
+    text-align: center;
+    font-size: 26px;
+    font-family: sans-serif;
+    margin-left: 10%;
+    padding-block: 10px;
+    margin-bottom: 0;
+    border-top: 1px solid rgb(60, 70, 130);
+    border-inline: 1px solid rgb(60, 70, 130);
+}
+
 .notification{
     background-color: rgb(10, 10, 10);
     width: 80%;
@@ -18,16 +32,35 @@
     margin-left: 10px;
     color: white;
 }
-.mark_as_read{
-    background-color: green;
+
+.mark_as_read button{
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 1px solid rgb(0, 30, 60);
     color: white;
-    text-align: center;
-    justify-content: center;
-}.mark_as_read button{
-    border: 1px solid white;
+    background-color: rgb(20, 50, 180);
     border-radius: 5px;
-    height: 100%;
-    width: 30%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    cursor: hand;
+    padding-inline: 25px;
+}.mark_as_read button:hover{
+    box-shadow: 1px 1px 1px 1px rgb(185, 185, 255);
+}
+
+.delete_notification button{
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 1px solid rgb(80, 10, 10);
+    color: white;
+    background-color: rgb(200, 0, 20);
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    cursor: hand;
+    padding-inline: 10px;
+}.delete_notification button:hover{
+    box-shadow: 1px 1px 1px 1px rgb(255, 185, 185);
 }
 
 .no_notifications{
@@ -36,8 +69,9 @@
     font-size: 20px;
     font-family: sans-serif;
     text-align: center;
-    width: 90%;
-    margin-left: 5%;
+    width: 80%;
+    margin-left: 10%;
     margin-block: 10px;
     padding-block: 10px;
+    border-bottom: 1px solid rgb(60, 70, 130);
 }

@@ -142,8 +142,8 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement Notifications to Tean owner when new member is joined to a Team. ✔
 
 22 / 06 / 2024
--Finalize HTML structure for Notifications page.
--Finalize CSS structure for Notifications page.
+-Finalize HTML structure for Notifications page. ✔
+-Finalize CSS structure for Notifications page. ✔
 -Add "Mark as Read" button for notifications. ✔
 -Marked as read notifications, must be displayed to another container of read notifications. ✔
 -Implement View to manage "Mark as Read" functionality. ✔
@@ -154,6 +154,8 @@ I will create the front_end app in my Django project to display the graphic proj
 
 Remaining tasks:
 /Notifications System
+-Set Notifications showed by ascendent form in Notifications page.
+-Fix Notifications creation hour because it is not matched the correct hour for your zone or country(must be 6:00 PM and it is 12:00 PM instead, 6 hours early).
 -Implement Notifications button on Top Bar.
 -Implement Notifications Template.
 -Implement Notifications 
