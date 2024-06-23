@@ -149,18 +149,16 @@ I will create the front_end app in my Django project to display the graphic proj
 -Implement View to manage "Mark as Read" functionality. ✔
 -Implement Notifications to Team owner when a member has left their Team. ✔
 
+23 / 06 / 2024
+-Set Notifications showed by ascendent form in Notifications page. ✔
+-Fix Notifications creation hour because it is not matched the correct hour for your zone or country(must be 6:00 PM and it is 12:00 PM instead, 6 hours early). ✔
+-Implement Notifications to Team member when Team owner has removed him for their Team. ✔
+
 27 / 05 / 24
 -Implement Ask 'Yes' 'No' alert using JS for KickOut member, Delete Team, Leave Team formularies. 
 
 Remaining tasks:
 /Notifications System
--Set Notifications showed by ascendent form in Notifications page.
--Fix Notifications creation hour because it is not matched the correct hour for your zone or country(must be 6:00 PM and it is 12:00 PM instead, 6 hours early).
--Implement Notifications button on Top Bar.
--Implement Notifications Template.
--Implement Notifications 
--Implement Notifications to Team owner when new user has joined on their Team.
--Implement Notifications to Team member when Team owner has removed him for their Team.
 -Implement Notification system for advice workers when the task is made to be delivery.
 -Implement Notification messages to advice when another people has asigned us a task.
 

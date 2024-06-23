@@ -281,7 +281,7 @@ def team_overview(request, team_identifier):
                 team_destinataries = team.members.all()
                 for member in team_destinataries:
                     if member != team.owner:
-                        notification_to_team_members = Notification.objects.create(reason=f"Member leave {team.name} Team", message=f'"{user}" has leave "{team.name}" Team where you are member.', destinatary=member, is_read=False)
+                        notification_to_team_members = Notification.objects.create(reason=f"Member leave {team.name} Team", message=f'"{user}" has leave "{team.name}" Team.', destinatary=member, is_read=False)
                 return redirect('/team/')
             else:
                 messages.error(request, "You are not a member of this team.")
@@ -364,6 +364,12 @@ def kick_out_member(request, team_identifier, member_identifier):
         if member in team.members.all():
             team.members.remove(member)
             team.save()
+            notification_to_team_owner = Notification.objects.create(reason="Removed Member", message=f'You have removed "{member}" from your Team', destinatary=request.user, is_read=False)
+            team_members = team.members.all()
+            for team_member in team_members:
+                if team_member != request.user:
+                    notification_to_team_members = Notification.objects.create(reason="Removed Member", message=f'"{member}" has been removed from "{team.name}" Team.', destinatary=team_member, is_read=False)
+            notification_to_removed_member = Notification.objects.create(reason="Removed Member", message=f'You have been removed from "{team.name}" Team.', destinatary=member, is_read=False)
             messages.success(request, f"{member.username} has been successfully removed from the team.")
         else:
             messages.error(request, "The user is not a member of this team.")
@@ -456,8 +462,8 @@ def logout_view(request):
 @login_required
 def notifications(request):
     user = request.user
-    notifications = Notification.objects.filter(destinatary=user, is_read=False)
-    read_notifications = Notification.objects.filter(destinatary=user, is_read=True)
+    notifications = Notification.objects.filter(destinatary=user, is_read=False).order_by('sent_at').reverse()
+    read_notifications = Notification.objects.filter(destinatary=user, is_read=True).order_by('sent_at').reverse()
     
     context = {'notifications':notifications, 'read_notifications':read_notifications}
     return render(request, 'notifications/notifications.html', context)

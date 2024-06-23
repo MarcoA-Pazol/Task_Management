@@ -33,6 +33,13 @@
     color: white;
 }
 
+.彡1{
+    color: rgb(60, 20, 120);
+}
+.彡2{
+    color: rgb(160, 120, 120);
+}
+
 .mark_as_read button{
     margin-left: 20px;
     margin-top: 20px;

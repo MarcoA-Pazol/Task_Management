@@ -9,7 +9,7 @@
         {% for notification in notifications %}
             <div class="notification">
                 <h4 class="notification_info">{{notification.sent_at}}</h4>
-                <h4 class="notification_info">{{notification}}</h4>
+                <h4 class="notification_info"><b class="彡1"> 彡彡彡 </b>{{notification}}<b class="彡1"> 彡彡彡 </b></h4>
                 <form method="POST" action="{% url 'mark_as_read_notification' notification_identifier=notification.id %}" class="mark_as_read">
                     {% csrf_token %}
                     <button type="submit">OK</button>
@@ -33,7 +33,7 @@
             {% for notification in read_notifications %}
             <div class="notification">
                 <h4 class="notification_info">{{notification.sent_at}}</h4>
-                <h4 class="notification_info">{{notification}}</h4>
+                <h4 class="notification_info"><b class="彡2"> 彡彡彡 </b>{{notification}}<b class="彡2"> 彡彡彡 </b></h4>
             </div>
             {% endfor %}
         {% else %}
