@@ -1,0 +1,34 @@
+{% extends "tasks/tasks_base.html" %}
+
+{% block task_content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/create_team_task.css' %}">
+
+    <div class="assign_team_task_container">
+        <h2>Assign Team Task</h2>
+
+        {% if have_team == True %}
+            {% if have_members == True %}
+                <form method="POST" action="" class="create_team_task_form">
+                    {% csrf_token %}
+                    <h4>Title</h4>
+                    {{form.title}}
+                    <h4>Description</h4>
+                    {{form.description}}
+                    <h4>To Be Completed On</h4>
+                    {{form.due_date}}
+                    <h4>Assign To</h4>
+                    {{form.assigned_employee}}
+                    <button type="submit">Submit</button>
+                </form>
+            {% else %}
+                <h3>No members</h3>
+                <h4>To assign a task, you have to have members on your Team first. Invite Employees to be joined.</h4>
+            {% endif %}
+        {% else %}
+            <h3>No Team</h3>
+            <h4>You can not assign tasks because you have no a Team already. Please, cleate your Team on Team page on top bar.</h4>
+        {% endif %}
+    </div>
+    
+{% endblock %}

@@ -154,12 +154,25 @@ I will create the front_end app in my Django project to display the graphic proj
 -Fix Notifications creation hour because it is not matched the correct hour for your zone or country(must be 6:00 PM and it is 12:00 PM instead, 6 hours early). ✔
 -Implement Notifications to Team member when Team owner has removed him for their Team. ✔
 
-27 / 05 / 24
--Implement Ask 'Yes' 'No' alert using JS for KickOut member, Delete Team, Leave Team formularies. 
+27 / 06 / 2024
+-Implement Notifications to Team owner when new Team has been created by herself. ✔
+-Implement Notifications to Team owner when their Team has been deleted by itself. ✔
+-Implement Notifications to Team members when their Team has been deleted by Team owner. ✔
+
+30 / 06 / 24
+-Implement Ask 'Yes' 'No' alert using JS for KickOut member, Delete Team, Leave Team formularies. ✔
+-Implement the task creation Formulary on Task page. ✔
+-Implement the task creation HTML. ✔
+-If there are not members for Team, then the owner just will can see a message on the page with "To assign a task, you have to have members on your Team first. Invite Employees to be joined." ✔
+
+04 / 07 / 2024
+-Implement task creation CSS. ✔
+-Implement task creation View, URL and functionality to be assigned to a specified Employeee for the Team(As a Team Owner). ✔
+-Fix Task Creation data sending(It seems not be sent to the wished DB). ✔
+
 
 Remaining tasks:
 /Notifications System
--Implement Notification system for advice workers when the task is made to be delivery.
 -Implement Notification messages to advice when another people has asigned us a task.
 
 /Search Bar

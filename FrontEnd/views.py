@@ -4,7 +4,7 @@ from django.contrib.auth import logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db import IntegrityError
 from BackEnd.models import Team_Task, Help_Question, Team, Employee, Personal_Task, save_initial_help_questions, Notification
-from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm, EditTeamForm
+from BackEnd.forms import RegistrationForm, LoginForm, AskForHelpForm, JoinTeamForm, CreateTeamForm, EditTeamForm, CreateTeamTaskForm
 
 #Functions
 def get_department(occupation):
@@ -97,6 +97,8 @@ def get_department(occupation):
     
         return department
 
+
+#VIEWS
 def home(request):
     return render(request, 'home.html')
 
@@ -245,6 +247,9 @@ def create_team(request):
                         team = Team.objects.create(owner=owner, name=name, description=description, department=department, access_key=access_key_create)
                         team.members.add(owner)
                         team.save()
+                        
+                        Notification.objects.create(reason="Team Creation", message=f'Your Team has been created by the "{name}" name', destinatary=owner, is_read="False")
+                        
                         return redirect('/')
                     except IntegrityError:
                         form.add_error('name', 'You are already owner of a team. You can not create another one.')
@@ -311,9 +316,17 @@ def delete_team(request, team_identifier):
         team = get_object_or_404(Team, name=team_identifier)
     except:
         team = Team.objects.filter(name=team_identifier).get()
+        
+    #Obtain team members list
+    team_members = team.members.all()
     
     if request.method == "POST":
         try:
+            team_owner_notification = Notification.objects.create(reason="Deleted Team", message=f'You have deleted your Team.', destinatary=request.user, is_read=False)
+            for member in team_members:
+                if member != request.user:
+                    team_members_notification = Notification.objects.create(reason="Deleted Team", message=f'"{team.name} " has been deleted by Team owner.', destinatary=member, is_read=False)
+            
             Team.objects.filter(name=team).delete()
             messages.success(request, f'{team.name} Team has been deleted succesfully!')
         except:    
@@ -378,8 +391,46 @@ def kick_out_member(request, team_identifier, member_identifier):
     return redirect('team_overview', team_identifier=team_identifier)
 
 
+"""TASKS VIEWS"""
+@login_required
+def create_team_task(request):
+    #Get the owner Team
+    team = Team.objects.get(owner=request.user)
+    if team:
+        have_team = True
+    else:
+        have_team = False
+        
+    #Get list of Team members
+    employees = team.members.all()
+    if employees:
+        have_members = True
+    else:
+        have_members = False
+    
+    if request.method == "POST":
+        form = CreateTeamTaskForm(request.POST, user=request.user)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.assigned_team = team
+            task.completed = False
+            task.save()
+            
+            #Notifications
+            to_member = Notification.objects.create(reason="Task Assigned", message=f"A task for '{team.name}' has been assigned to you.", destinatary=form.cleaned_data['assigned_employee'], is_read=False)
+            to_owner = Notification.objects.create(reason="Task Assigned", message=f"You had assigned a Task to '{form.cleaned_data['assigned_employee']}'", destinatary=request.user, is_read=False)
+            return redirect('home')
+    else:
+        form = CreateTeamTaskForm(user=request.user)
+    
+    context = {'form':form, 'have_team':have_team, 'have_members':have_members}
+        
+    return render(request, "tasks/create_team_task.html", context)
+    
 
 
+
+"""OTHER VIEWS"""
 def help(request):
     #Formulary Loading
     save_initial_help_questions()
@@ -426,14 +477,16 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            print("The values are correct")
-            # Guardar los datos del formulario y crear el usuario
             try:
                 user = form.save(commit=False)
-                # Define el departamento basado en la ocupación
+                # Define department based on Employee ocupation.
                 user.department = get_department(occupation=form.cleaned_data['occupation'])
                 user.save()
-                # Autenticar y redirigir al usuario
+                
+                # Create Notification to welcome new Employee.
+                notification = Notification.objects.create(reason="New Employee", message=f'Welcome {user}. Your account has been created successfully. This is your notifications center.', destinatary=user, is_read=False)
+                
+                # Authenticate and redirect user to Home.
                 auth.login(request, user)
                 return redirect('/')
             except IntegrityError:

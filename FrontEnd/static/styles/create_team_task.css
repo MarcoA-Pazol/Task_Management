@@ -1,0 +1,66 @@
+.assign_team_task_container{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.assign_team_task_container h2{
+    color: rgb(180, 197, 250);
+    font-size: 28px;
+}
+
+.create_team_task_form h4{
+    background-color: rgb(20, 40, 120);
+    border-top: 1px solid white;
+    border-inline: 1px solid white;
+    width: 80%;
+    margin-bottom: 0;
+    margin-left: 10%;
+    font-size: 20px;
+}
+.create_team_task_form input[type="text"]{
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.create_team_task_form textarea{
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.form-control {
+    width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.assigned-employee {
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.create_team_task_form button{
+    width: 100%;
+    font-size: 20px;
+    background-color: black;
+    color: rgb(180, 197, 250);
+    box-shadow: 2px 2px 3px 1px rgb(120, 140, 250);
+}.create_team_task_form button:hover{
+    transform: scale(1.1);
+    width: 75%;
+    cursor: hand;
+    transition-duration: 0.4s;
+    text-shadow: 2px 2px 4px rgb(20, 40, 120);
+}

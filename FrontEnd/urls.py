@@ -8,6 +8,7 @@ urlpatterns = [
     #Tasks URLs
     path('tasks/', views.tasks, name='tasks'),
     path('tasks/create_personal_task/', views.create_personal_task, name='create_personal_task'),
+    path('tasks/create_team_task/', views.create_team_task, name='create_team_task'),
     #Team URLs
     path('team/', views.team, name='team'),
     path('team/join/', views.join_team, name='join_team'),

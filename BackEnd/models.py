@@ -1,117 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django import forms
-
-#List for choiceable values
-OCCUPATION_CHOICES = [
-    # BackEnd
-    ['Back-End Developer', 'Back-End Developer'],
-    ['Servers Engineer', 'Server Engineer'],
-    # FrontEnd
-    ['Front-End Developer', 'Front-End Developer'],
-    # DevOps
-    ['DevOps Developer', 'DevOps Developer'],
-    ['Prompt Engineer', 'Prompt Engineer'],
-    
-    # Design
-    ['Product Designer', 'Product Designer'],
-    ['Graphic Designer', 'Graphic Designer'],
-    ['UX Designer', 'UX Designer'],
-    ['UI Designer', 'UI Designer'],
-    ['UI/UX Designer', 'UI/UX Designer'],
-    ['Web Designer', 'Web Designer'],
-    
-    # Project Management
-    ['Project Manager', 'Project Manager'],
-    ['SCRUM Master', 'SCRUM Master'],
-    ['Agile Coach', 'Agile Coach'],
-    
-    # Quality Assurance (QA)
-    ['Manual Tester', 'Manual Tester'],
-    ['Automated Tester', 'Automated Tester'],
-    ['Performance Tester', 'Performance Tester'],
-    
-    # Information Technology (IT)
-    ['IT Support Specialist', 'IT Support Specialist'],
-    ['Network Administrator', 'Network Administrator'],
-    ['System Administrator', 'System Administrator'],
-    ['Cybersecurity Specialist', 'Cybersecurity Specialist'],
-    
-    # Sales and Marketing
-    ['Sales Specialist', 'Sales Specialist'],
-    ['Marketing Specialist', 'Marketing Specialist'],
-    ['Digital Marketer', 'Digital Marketer'],
-    ['Content Marketer', 'Content Marketer'],
-    ['SEO/SEM Specialist', 'SEO/SEM Specialist'],
-    
-    # Customer Support/Service
-    ['Customer Support Specialist', 'Customer Support Specialist'],
-    ['Technical Support Specialist', 'Technical Support Specialist'],
-    ['Client Relations Specialist', 'Client Relations Specialist'],
-    
-    # Consultancy
-    ['Business Consultant', 'Business Consultant'],
-    ['IT Consultant', 'IT Consultant'],
-    ['Strategy Consultant', 'Strategy Consultant'],
-    ['Process Improvement Specialist', 'Process Improvement Specialist'],
-    
-    # Product Management
-    ['Product Manager', 'Product Manager'],
-    ['Product Strateist', 'Product Strategist'],
-    ['Product Marketer', 'Product Marketer'],
-    
-    # Data
-    ['Data Scientist', 'Data Scientist'],
-    ['Data Engineer', 'Data Engineer'],
-    ['Data Analyst', 'Data Analyst'],
-    ['Database Manager', 'Database Manager'],
-    ['Business Intelligence Analyst', 'Business Intelligence Analyst'],
-    
-    # Finance
-    ['Accountant', 'Accountant'],
-    ['Financial Planning Analyst', 'Financial Planning Analyst'],
-    ['Billing Specialist', 'Billing Specialist'],
-    
-    # Operations
-    ['Operations Manager', 'Operations Manager'],
-    ['Supply Chain Manager', 'Supply Chain Manager'],
-    ['Facilities Manager', 'Facilities Manager'],
-    
-    # Legal
-    ['Legal Counsel', 'Legal Counsel'],
-    ['Compliance Officer', 'Compliance Officer'],
-    ['Contract Manager', 'Contract Manager'],
-    
-    # Research and Development (R&D)
-    ['Innovation Specialist', 'Innovation Specialist'],
-    ['Prototyping Specialist', 'Prototyping Specialist'],
-    ['Researcher', 'Researcher'],
-    
-    # Training and Development
-    ['Employee Training Specialist', 'Employee Training Specialist'],
-    ['Leadership Development Specialist', 'Leadership Development Specialist'],
-    ['Professional Development Specialist', 'Professional Development Specialist'],
-    
-    # Administration
-    ['Office Administrator', 'Office Administrator'],
-    ['Executive Assistant', 'Executive Assistant'],
-    ['Receptionist', 'Receptionist'],
-    
-    # Vendor Management
-    ['Supplier Relations Specialist', 'Supplier Relations Specialist'],
-    ['Contract Negotiation Specialist', 'Contract Negotiation Specialist'],
-    
-    # Corporate Strategy
-    ['Business Strategist', 'Business Strategist'],
-    ['Market Research Analyst', 'Market Research Analyst'],
-    ['Competitive Analyst', 'Competitive Analyst'],
-    
-    # Communications
-    ['Internal Communications Specialist', 'Internal Communications Specialist'],
-    ['Public Relations Specialist', 'Public Relations Specialist'],
-    ['Corporate Communications Specialist', 'Corporate Communications Specialist'],
-]
-
 
 #List of questions to be displayed on 'Help' page for user. 
 HELP_QUESTIONS = [
@@ -129,6 +17,7 @@ HELP_QUESTIONS = [
     ['How to get an evaluation for Task?', 'Go to Send Evaluation > Send the file, image, evidence, etc. to be evaluated. > Get Response on your notifications center included in your profile page where you can find notification like this "Evaluation: Your task has been evaluated succesfully. Task state: Completed".', 'Task'],
     ['How to assign same Task for more than one member for my own Team?', 'In Task assignation formulary, in "Asigned to" click on "Group". then on down displayed list assign task to every member you want.', 'Task'] 
 ]
+
 
 def save_initial_help_questions():
     for question in HELP_QUESTIONS:
@@ -168,8 +57,7 @@ class Team_Task(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
     due_date = models.DateTimeField()
-    priority = models.CharField(max_length=50)
-    status = models.BooleanField(default="Uncompleted")
+    completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     assigned_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='assigned_team')
     assigned_employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='assigned_employee')
